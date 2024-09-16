@@ -1,3 +1,2 @@
-import { authGuard } from "../../utilities/authGuard";
-
+import { authGuard } from '../../utilities/authGuard';
 authGuard();
