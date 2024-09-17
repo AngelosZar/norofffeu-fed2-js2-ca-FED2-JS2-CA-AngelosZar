@@ -1,4 +1,5 @@
-export function registerAjaxCall() {}
+import { register } from '../../api/auth/register';
+
 export async function onRegister(event) {
   event.preventDefault();
   const form = event.target;
@@ -19,10 +20,15 @@ export async function onRegister(event) {
       : undefined,
   };
   console.log(userRegisteringData);
-  return userRegisteringData;
+  //   return userRegisteringData;
+  try {
+    const res = await register(userRegisteringData);
+    alert('User registered successfully');
+  } catch (error) {
+    console.error('Error:', error);
+    console.log(error);
+  }
 }
-
-console.log('connected');
 
 // {
 //     "name": "3XX8DE9Xw0maknTwcMS8",
