@@ -24,6 +24,11 @@ export async function onRegister(event) {
   try {
     const res = await register(userRegisteringData);
     alert('User registered successfully');
+    // problem redirecting to login page
+    // window.location.href = '/auth/login/';
+    // window.assign('/auth/login/');
+    // window.location.replace('/auth/login/');
+    // /auth/login/
   } catch (error) {
     console.error('Error:', error);
     console.log(error);
