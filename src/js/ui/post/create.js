@@ -1,10 +1,9 @@
 import { createPost } from '../../api/post/create';
 
-//
 export async function onCreatePost(event) {
   event.preventDefault();
   const userInput = {
-    title: 'A tenth random title for test',
+    title: '11 random title for test',
     body: 'also something very random like bhsdfgbdskfbgkdsh',
     tags: ['random,veryRandom'],
     media: {
@@ -13,18 +12,9 @@ export async function onCreatePost(event) {
     },
   };
   try {
-    const response = await createPost({ userInput });
-
-    if (!response.ok) {
-      const errorMessage = await response.json();
-      console.log(errorMessage);
-      throw new Error(`Create post failed: ${errorData.message}`);
-    }
-
-    const responseData = await response.json();
-    console.log(data);
+    const createdPost = await createPost({ userInput });
     confirm('Post created successfully');
-    return responseData;
+    // return responseData;
   } catch (error) {
     console.error(error.message);
     alert(`An error occurred: ${error.message}`);
