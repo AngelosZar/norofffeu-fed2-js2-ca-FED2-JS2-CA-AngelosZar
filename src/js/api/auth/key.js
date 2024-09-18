@@ -2,6 +2,10 @@ import { API_AUTH_KEY } from '../constants';
 console.log(API_AUTH_KEY);
 // const name = localStorage.getItem('name') || '';
 //
+const credentials = {
+  email: 'somethingRandom@stud.noroff.no',
+  password: '',
+};
 export async function getKey() {
   try {
     const token = localStorage.getItem('accessToken');
@@ -12,16 +16,15 @@ export async function getKey() {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      //   body: JSON.stringify({ name }),
+      body: JSON.stringify({ credentials }),
     });
     if (!token) {
       throw new Error('Access token is missing');
     }
     if (response.ok) {
       const apiKeyValue = await response.json();
-      localStorage.setItem('apiKey', apiKeyValue);
-      console.log(apiKeyValue);
-      console.log(apiKey);
+      const apiKey = apiKeyValue.data.key;
+      localStorage.setItem('apiKey', apiKey);
     } else {
       const error = await response.json();
       console.log('error', error);
