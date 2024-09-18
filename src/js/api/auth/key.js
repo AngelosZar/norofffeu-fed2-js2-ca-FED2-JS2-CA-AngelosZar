@@ -6,6 +6,7 @@ const credentials = {
   email: 'somethingRandom@stud.noroff.no',
   password: '',
 };
+
 export async function getKey() {
   try {
     const token = localStorage.getItem('accessToken');
