@@ -22,6 +22,8 @@ export async function onCreatePost(event) {
   try {
     const userInput = grabUserInput(event);
     const createdPost = await createPost({ userInput });
+    console.log(userInput);
+    console.log(createdPost);
   } catch (error) {
     alert(`An error occurred: ${error.message}`);
     throw error;
