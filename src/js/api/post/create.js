@@ -18,15 +18,15 @@ export async function createPost({ userInput }) {
 
     if (!response.ok) {
       const errorMessage = await response.json();
-      console.log(errorMessage);
-      throw new Error(`Create post failed: ${errorData.message}`);
+      // alert(`Create post failed: ${errorMessage.errors[0].message}`);
+      throw new Error(`Create post failed: ${errorMessage.errors[0].message}`);
+    } else {
+      alert('Post created successfully');
+      const responseData = await response.json();
+      return responseData;
     }
-
-    const responseData = await response.json();
-    console.log(responseData);
-    return responseData;
   } catch (error) {
     console.log(`An error occurred while creating a new post\n${error} `);
-    alert(`An error occurred while creating a new post\n ${error}`);
+    alert(`An error occurred while creating a new post\n${error}`);
   }
 }
