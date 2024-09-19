@@ -18,7 +18,6 @@ export async function createPost({ userInput }) {
 
     if (!response.ok) {
       const errorMessage = await response.json();
-      // alert(`Create post failed: ${errorMessage.errors[0].message}`);
       throw new Error(`Create post failed: ${errorMessage.errors[0].message}`);
     } else {
       alert('Post created successfully');
@@ -26,7 +25,6 @@ export async function createPost({ userInput }) {
       return responseData;
     }
   } catch (error) {
-    console.log(`An error occurred while creating a new post\n${error} `);
     alert(`An error occurred while creating a new post\n${error}`);
   }
 }
