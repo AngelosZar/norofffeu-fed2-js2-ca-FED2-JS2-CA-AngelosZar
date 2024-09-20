@@ -1,1 +1,17 @@
 @import url(_reset.css);
+
+.card-for-posts {
+  max-width: calc(60% - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.media-for-post {
+  max-width: calc(100% - 5px);
+}

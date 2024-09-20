@@ -19,7 +19,8 @@ export async function readPost(id) {
     }
     const responseData = await response.json();
     console.log(responseData.data);
-    return responseData;
+    // console.log(responseData);
+    return responseData.data;
   } catch (error) {
     throw error;
   }
