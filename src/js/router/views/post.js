@@ -1,4 +1,26 @@
 import { readPost, readPosts } from '../../api/post/read';
+import { deletePost } from '../../api/post/delete';
+
+const handleDeletingPost = async function (event) {
+  event.preventDefault();
+  if (event.target.id === 'deleteCurrentPost') {
+    const postCard = event.target.closest('.card-for-posts');
+    console.log(postCard);
+    console.log(postCard.data);
+    const postId = postCard.id;
+    console.log(postId);
+  }
+
+  const confirmDelete = confirm('Are you sure you want to delete this post?');
+  if (!confirmDelete) return;
+  try {
+    // await deletePost(postId);
+    // postCard.remove();
+  } catch {
+    alert(error);
+  }
+  // console.log(error);
+};
 
 const renderSinglePost = async function (id) {
   try {
@@ -17,6 +39,10 @@ const renderSinglePost = async function (id) {
             <img class="media-for-post" src="${responseData.media.url}" alt="${
       responseData.media.alt
     }" />
+     <a href="../post/edit/index.html" id="clickOnEditAPost" class="btn-action1"
+    >Edit Post</a
+  >
+  <a href="#" id="deleteCurrentPost" class="btn-action1">Delete Post</a>
           </div> `;
     parentContainer.insertAdjacentHTML('beforeend', html);
   } catch (error) {
@@ -44,8 +70,16 @@ const renderMultiplePosts = async function (limit, page, tag) {
             <img class="media-for-post" src="${post?.media?.url ?? ''}" alt="${
         post?.media?.alt ?? ''
       }" />
+       <a href="../post/edit/index.html" id="clickOnEditAPost" class="btn-action1"
+    >Edit Post</a
+  >
+  <a href="#" id="deleteCurrentPost" class="btn-action1">Delete Post</a>
           </div>`;
       parentContainer.insertAdjacentHTML('beforeend', html);
+      console.log(post);
+      parentContainer.addEventListener('click', handleDeletingPost);
+      console.log(post.id);
+      return post.id;
     });
   } catch (error) {
     alert(error);
@@ -54,4 +88,4 @@ const renderMultiplePosts = async function (limit, page, tag) {
 };
 
 await renderMultiplePosts(12, 1, 'tag');
-await renderSinglePost(628);
+await renderSinglePost(674);
