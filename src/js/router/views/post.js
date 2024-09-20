@@ -1,4 +1,4 @@
-import { readPost } from '../../api/post/read';
+import { readPost, readPosts } from '../../api/post/read';
 console.log('yo You are at Single Post Page');
 // readPost(627);
 
@@ -25,3 +25,4 @@ const renderSinglePost = async function (id) {
   } catch (error) {}
 };
 renderSinglePost(628);
+readPosts(12, 1, 'tag');
