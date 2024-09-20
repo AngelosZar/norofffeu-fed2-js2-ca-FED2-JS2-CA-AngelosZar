@@ -12,14 +12,13 @@ export async function readPost(id) {
         'X-Noroff-API-Key': `${localStorage.getItem('apiKey')}`,
       },
     });
+
     if (!response.ok) {
-      console.log(responseData.errors[0].message);
       alert(responseData.errors[0].message);
       throw new Error(responseData.message);
     }
+
     const responseData = await response.json();
-    // console.log(responseData.data);
-    // console.log(responseData);
     return responseData.data;
   } catch (error) {
     throw error;
@@ -39,13 +38,12 @@ export async function readPosts(limit = 12, page = 1, tag) {
         },
       }
     );
+
     if (!response.ok) {
-      console.log(responseData.errors[0].message);
       alert(responseData.errors[0].message);
       throw new Error(responseData.message);
     }
     const responseData = await response.json();
-    console.log(responseData.data);
     return responseData.data;
   } catch (error) {
     throw error;
