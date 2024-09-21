@@ -1,17 +1,13 @@
 import { API_SOCIAL_POSTS } from '../constants';
-console.log(API_SOCIAL_POSTS);
-//
 
 export async function createPost({ userInput }) {
-  const token = localStorage.getItem('accessToken');
-  const apiKey = localStorage.getItem('apiKey');
   try {
     const response = await fetch(API_SOCIAL_POSTS, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-        'X-Noroff-API-Key': `${apiKey}`,
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'X-Noroff-API-Key': `${localStorage.getItem('apiKey')}`,
       },
       body: JSON.stringify(userInput),
     });
@@ -20,7 +16,6 @@ export async function createPost({ userInput }) {
       const errorMessage = await response.json();
       throw new Error(`Create post failed: ${errorMessage.errors[0].message}`);
     } else {
-      alert('Post created successfully');
       const responseData = await response.json();
       return responseData;
     }

@@ -9,9 +9,7 @@ const handleDeletingPost = async function (event) {
       event.target.dataset.postId
     ) {
       event.preventDefault();
-      console.log('clicked');
       const postId = event.target.dataset.postId;
-      console.log(postId);
       const confirmDelete = confirm(
         'Are you sure you want to delete this post?'
       );

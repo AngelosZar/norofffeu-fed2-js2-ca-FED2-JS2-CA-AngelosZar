@@ -19,11 +19,14 @@ const grabUserInput = function (event) {
 
 export async function onCreatePost(event) {
   event.preventDefault();
+  const form = event.target;
   try {
     const userInput = grabUserInput(event);
     const createdPost = await createPost({ userInput });
-    console.log(userInput);
-    console.log(createdPost);
+    if (createdPost) {
+      form.reset();
+      alert('Post created successfully  ');
+    }
   } catch (error) {
     alert(`An error occurred: ${error.message}`);
     throw error;
