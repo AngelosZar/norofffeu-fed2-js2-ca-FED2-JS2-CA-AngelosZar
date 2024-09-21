@@ -1,21 +1,29 @@
-import { API_BASE } from '../constants';
-console.log(API_BASE);
+import { API_BASE, API_KEY } from '../constants';
+
 export async function deletePost(id) {
   try {
-    const response = await fetch(`API_BASE/social/posts/${id}`, {
+    // const apiKey = localStorage.getItem('apiKey');
+    // const accessToken = localStorage.getItem('accessToken');
+
+    const response = await fetch(`${API_BASE}/social/posts/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'X-Noroff-API-Key': localStorage.getItem('API_KEY'),
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'X-Noroff-API-Key': `${localStorage.getItem('apiKey')}`,
       },
+      //   authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     });
     if (!response.ok) {
+      const data = await response.json();
+      console.log(API_KEY);
+      console.log(data);
+      console.log(accessToken);
       throw new Error('Failed to delete post');
     }
-    confirm('Post deleted successfully');
   } catch (error) {
     throw error;
   }
 }
 
-// deletePost(6);
+// deletePost(712);

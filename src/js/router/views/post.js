@@ -2,47 +2,52 @@ import { readPost, readPosts } from '../../api/post/read';
 import { deletePost } from '../../api/post/delete';
 
 const handleDeletingPost = async function (event) {
-  event.preventDefault();
-  if (event.target.id === 'deleteCurrentPost') {
-    const postCard = event.target.closest('.card-for-posts');
-    console.log(postCard);
-    console.log(postCard.data);
-    const postId = postCard.id;
-    console.log(postId);
-  }
-
-  const confirmDelete = confirm('Are you sure you want to delete this post?');
-  if (!confirmDelete) return;
   try {
-    // await deletePost(postId);
-    // postCard.remove();
+    event.preventDefault();
+    if (
+      event.target.id === 'deleteCurrentPost' &&
+      event.target.dataset.postId
+    ) {
+      event.preventDefault();
+      console.log('clicked');
+      const postId = event.target.dataset.postId;
+      console.log(postId);
+      const confirmDelete = confirm(
+        'Are you sure you want to delete this post?'
+      );
+      if (!confirmDelete) return;
+      await deletePost(postId);
+      confirm('Post deleted successfully');
+      event.target.closest('.card-for-posts').remove();
+    }
   } catch {
-    alert(error);
+    alert(error.message);
   }
-  // console.log(error);
 };
 
 const renderSinglePost = async function (id) {
   try {
-    const responseData = await readPost(id);
+    const post = await readPost(id);
 
-    if (!responseData) {
+    if (!post) {
       throw new Error('No data found\nPlease try again later');
     }
 
     const parentContainer = document.querySelector('#single_post');
     const html = ` 
           <div class="card-for-posts">
-            <h3 class="title-for-post">${responseData.title}</h3>
-            <p class="body-for-post">${responseData.body}</p>
-            <p class="tags-for-post">${responseData.tags.join(' / ')}</p>
-            <img class="media-for-post" src="${responseData.media.url}" alt="${
-      responseData.media.alt
+            <h3 class="title-for-post">${post.title}</h3>
+            <p class="body-for-post">${post.body}</p>
+            <p class="tags-for-post">${post.tags.join(' / ')}</p>
+            <img class="media-for-post" src="${post.media.url}" alt="${
+      post.media.alt
     }" />
      <a href="../post/edit/index.html" id="clickOnEditAPost" class="btn-action1"
     >Edit Post</a
   >
-  <a href="#" id="deleteCurrentPost" class="btn-action1">Delete Post</a>
+  <a href="" id="deleteCurrentPost" class="btn-action1" data-post-id="${
+    post.id
+  }" >Delete Post</a>
           </div> `;
     parentContainer.insertAdjacentHTML('beforeend', html);
   } catch (error) {
@@ -73,12 +78,15 @@ const renderMultiplePosts = async function (limit, page, tag) {
        <a href="../post/edit/index.html" id="clickOnEditAPost" class="btn-action1"
     >Edit Post</a
   >
-  <a href="#" id="deleteCurrentPost" class="btn-action1">Delete Post</a>
+  <a href="#" id="deleteCurrentPost" class="btn-action1" data-post-id="${
+    post.id
+  }" >Delete Post</a>
           </div>`;
+
       parentContainer.insertAdjacentHTML('beforeend', html);
-      console.log(post);
+      // console.log(post);
       parentContainer.addEventListener('click', handleDeletingPost);
-      console.log(post.id);
+      // console.log(post.id);
       return post.id;
     });
   } catch (error) {
@@ -89,3 +97,10 @@ const renderMultiplePosts = async function (limit, page, tag) {
 
 await renderMultiplePosts(12, 1, 'tag');
 await renderSinglePost(674);
+//
+// if (event.target.id === 'deleteCurrentPost') {
+//   const postCard = event.target.closest('.card-for-posts');
+//   console.log(postCard);
+//   // console.log(postCard.data);
+//   const postId = postCard.id;
+//   console.log(postId);
