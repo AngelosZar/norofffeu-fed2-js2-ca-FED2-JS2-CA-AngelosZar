@@ -1,6 +1,6 @@
 import { createPost } from '../../api/post/create';
 
-const grabUserInput = function (event) {
+export const grabUserInput = function (event) {
   event.preventDefault();
   const form = event.target;
   const title = form.title.value;

@@ -1,4 +1,5 @@
 import { API_SOCIAL_POSTS } from '../../api/constants';
+
 export async function updatePost(id, userInput) {
   // export async function updatePost(id, { title, body, tags, media }) {
   try {
@@ -9,14 +10,17 @@ export async function updatePost(id, userInput) {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         'X-Noroff-API-Key': `${localStorage.getItem('apiKey')}`,
       },
-      //   body: JSON.stringify(userInput),  or
       body: JSON.stringify(userInput),
     });
+
     if (!response.ok) {
-      const data = await response.json();
-      console.log(`Error:\n${data.errors[0].message}`);
+      const errorMessage = await response.json();
+      throw new Error(`Update post failed: ${errorMessage.errors[0].message}`);
     }
+    const responseData = await response.json();
+    return responseData;
   } catch (error) {
-    console.log('');
+    console.error('Update post failed:', error.message);
+    throw error; // Optionally rethrow the error for further handling
   }
 }

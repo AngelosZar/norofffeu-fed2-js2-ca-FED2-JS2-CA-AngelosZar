@@ -18,22 +18,22 @@
       </div>
       <div>
         <label for="body">Body</label>
-        <textarea name="body" id="body" required></textarea>
+        <textarea name="body" id="body" cols="16" rows="5"></textarea>
       </div>
       <div>
         <label for="tags">Tags</label>
         <input type="text" name="tags" id="tags" />
       </div>
-      <div id="current-img-on-edit">
+      <!-- <div id="current-img-on-edit">
         <img src="" alt="" id="currentImage" />
+      </div> -->
+      <div>
+        <label for="media_url">Image URL</label>
+        <input type="url" name="media_url" id="media_url" />
       </div>
       <div>
-        <label for="media_img_url">Image URL</label>
-        <input type="url" name="media_img_url" id="media_img_url" />
-      </div>
-      <div>
-        <label for="media_img_alt">Alt Text</label>
-        <input type="text" name="media_img_alt" id="media_img_alt" />
+        <label for="media_alt">Alt Text</label>
+        <input type="text" name="media_alt" id="media_alt" />
       </div>
       <button type="submit">Edit Post</button>
     </form>
