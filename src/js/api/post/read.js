@@ -21,7 +21,7 @@ export async function readPost(id) {
     const responseData = await response.json();
     return responseData.data;
   } catch (error) {
-    throw error;
+    // throw error;
   }
 }
 

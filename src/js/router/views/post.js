@@ -1,6 +1,17 @@
 import { readPost, readPosts } from '../../api/post/read';
 import { deletePost } from '../../api/post/delete';
 
+const handleEditPost = async function (event) {
+  if (
+    event.target.matches('.btn-action1') &&
+    event.target.textContent.includes('Edit Post')
+  ) {
+    const editBtn = event.target;
+    const clickedPostID = editBtn.dataset.postId;
+    localStorage.setItem('postID', clickedPostID);
+    window.location.href = `../post/edit/`;
+  }
+};
 const handleDeletingPost = async function (event) {
   try {
     event.preventDefault();
@@ -40,14 +51,16 @@ const renderSinglePost = async function (id) {
             <img class="media-for-post" src="${post.media.url}" alt="${
       post.media.alt
     }" />
-     <a href="../post/edit/index.html" id="clickOnEditAPost" class="btn-action1"
-    >Edit Post</a
-  >
+     <a href="" id="clickOnEditAPost" class="btn-action1" data-post-id="${
+       post.id
+     }">Edit Post</a>
+ 
   <a href="" id="deleteCurrentPost" class="btn-action1" data-post-id="${
     post.id
   }" >Delete Post</a>
           </div> `;
     parentContainer.insertAdjacentHTML('beforeend', html);
+    parentContainer.addEventListener('click', handleEditPost);
   } catch (error) {
     alert(error);
     throw error;
@@ -73,20 +86,20 @@ const renderMultiplePosts = async function (limit, page, tag) {
             <img class="media-for-post" src="${post?.media?.url ?? ''}" alt="${
         post?.media?.alt ?? ''
       }" />
-       <a href="../post/edit/index.html" id="clickOnEditAPost" class="btn-action1"
-    >Edit Post</a
-  >
-  <a href="#" id="deleteCurrentPost" class="btn-action1" data-post-id="${
-    post.id
-  }" >Delete Post</a>
-          </div>`;
+      
+             <a href="../post/edit/" class="btn-action1" data-post-id="${
+               post.id
+             }" >Edit Post</a>
+            <a href="#" id="deleteCurrentPost" class="btn-action1">Delete Post</a>
+           </div> `;
 
       parentContainer.insertAdjacentHTML('beforeend', html);
-      // console.log(post);
-      parentContainer.addEventListener('click', handleDeletingPost);
-      // console.log(post.id);
-      return post.id;
+      const postId = post.id;
+      // console.log(postId);
+      return postId;
     });
+    parentContainer.addEventListener('click', handleDeletingPost);
+    parentContainer.addEventListener('click', handleEditPost);
   } catch (error) {
     alert(error);
     throw error;
@@ -94,11 +107,4 @@ const renderMultiplePosts = async function (limit, page, tag) {
 };
 
 await renderMultiplePosts(12, 1, 'tag');
-await renderSinglePost(674);
-//
-// if (event.target.id === 'deleteCurrentPost') {
-//   const postCard = event.target.closest('.card-for-posts');
-//   console.log(postCard);
-//   // console.log(postCard.data);
-//   const postId = postCard.id;
-//   console.log(postId);
+await renderSinglePost(600);
