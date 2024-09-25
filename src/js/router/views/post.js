@@ -90,13 +90,5 @@ export const renderMultiplePosts = async function (limit, page, tag) {
   }
 };
 
-// document.addEventListener('DOMContentLoaded', async () => {
-//   await renderMultiplePosts(12, 1, 'tag');
-//   await renderSinglePost(1069);
-// });
-document.addEventListener('DOMContentLoaded', async function () {
-  await renderMultiplePosts(12, 1, 'tag');
-  await renderSinglePost(1069);
-});
 // await renderMultiplePosts(12, 1, 'tag');
 // await renderSinglePost(1069);

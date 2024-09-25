@@ -72,3 +72,13 @@ header {
 button:focus {
   outline: none;
 }
+
+.hidden {
+  display: none;
+}
+
+.active {
+  color: blue;
+  opacity: 0.5;
+  text-decoration: underline;
+}

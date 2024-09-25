@@ -7,7 +7,24 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
+
   <body>
+    <header>
+      <div class="header__left">
+        <a href="/" class="header__link">Home</a>
+        <a href="/profile/" class="header__link active">My Profile</a>
+        <a href="/auth/login/" class="header__link">Login</a>
+        <a href="/auth/register/" class="header__link">Register</a>
+        <button id="logout-btn" class="header__button">Logout</button>
+      </div>
+      <div class="header__right">
+        <img
+          src="/images/noroff-logo.png"
+          alt="Noroff Logo"
+          class="header__logo"
+        />
+      </div>
+    </header>
     <h1>Profile</h1>
 
     <form name="updateProfile">
