@@ -18,3 +18,15 @@ export const API_SOCIAL = `${API_BASE}/social`;
 export const API_SOCIAL_POSTS = `${API_SOCIAL}/posts`;
 
 export const API_SOCIAL_PROFILES = `${API_SOCIAL}/profiles`;
+
+export const API_SOCIAL_PROFILES_FOLLOW = `${API_BASE}/social/profiles/{name}/follow`;
+
+export const API_SOCIAL_PROFILES_UNFOLLOW = `${API_BASE}/social/profiles/{name}/unfollow`;
+
+export const API_SOCIAL_PROFILES_POSTS = `${API_BASE}/social/profiles/{name}/posts`;
+
+export const API_SOCIAL_POSTS_REACT = `${API_BASE}/social/posts/{id}/react/{symbol}`;
+
+export const API_SOCIAL_POSTS_COMMENT = `${API_BASE}/social/posts/{id}/comment`;
+
+export const API_SOCIAL_POSTS_DELETE_COMMENT = `${API_BASE}/social/posts/{id}/comment/{commentId}`;
