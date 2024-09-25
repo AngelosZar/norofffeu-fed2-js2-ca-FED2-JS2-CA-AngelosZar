@@ -34,7 +34,8 @@ export const handleDeletingPost = async function (event) {
     alert(error.message);
   }
 };
-const generateHtml = async function (parentDiv, responseData) {
+
+export const generateHtml = async function (parentDiv, responseData) {
   const parentContainer = document.querySelector(`#${parentDiv}`);
   responseData.forEach(post => {
     const html = `
@@ -60,6 +61,7 @@ const generateHtml = async function (parentDiv, responseData) {
   parentContainer.addEventListener('click', handleDeletingPost);
   parentContainer.addEventListener('click', handleEditPost);
 };
+
 const renderSinglePost = async function (id) {
   try {
     const post = await readPost(id);
@@ -67,33 +69,13 @@ const renderSinglePost = async function (id) {
     if (!post) {
       throw new Error('No data found\nPlease try again later');
     }
-
-    const parentContainer = document.querySelector('#single_post');
-    const html = ` 
-          <div class="card-for-posts">
-            <h3 class="title-for-post">${post.title}</h3>
-            <p class="body-for-post">${post?.body}</p>
-            <p class="tags-for-post">${post?.tags.join(' / ')}</p>
-            <img class="media-for-post" src="${post.media?.url}" alt="${
-      post.media?.alt
-    }" />
-     <a href="" id="clickOnEditAPost" class="btn-action1" data-post-id="${
-       post.id
-     }">Edit Post</a>
- 
-  <a href="" id="deleteCurrentPost" class="btn-action1" data-post-id="${
-    post.id
-  }" >Delete Post</a>
-          </div> `;
-    parentContainer.insertAdjacentHTML('beforeend', html);
-    parentContainer.addEventListener('click', handleEditPost);
+    generateHtml('single_post', [post]);
   } catch (error) {
     alert(error);
     throw error;
   }
 };
 
-//
 export const renderMultiplePosts = async function (limit, page, tag) {
   try {
     const responseData = await readPosts(limit, page, tag);
@@ -108,5 +90,13 @@ export const renderMultiplePosts = async function (limit, page, tag) {
   }
 };
 
-await renderMultiplePosts(12, 1, 'tag');
-await renderSinglePost(1069);
+// document.addEventListener('DOMContentLoaded', async () => {
+//   await renderMultiplePosts(12, 1, 'tag');
+//   await renderSinglePost(1069);
+// });
+document.addEventListener('DOMContentLoaded', async function () {
+  await renderMultiplePosts(12, 1, 'tag');
+  await renderSinglePost(1069);
+});
+// await renderMultiplePosts(12, 1, 'tag');
+// await renderSinglePost(1069);
