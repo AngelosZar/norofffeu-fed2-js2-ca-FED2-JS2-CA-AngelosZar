@@ -43,5 +43,6 @@ const renderMultiplePosts = async function (limit, page, tag) {
   }
 };
 
+// work on this
 document.addEventListener('DOMcontentLoaded', checkForCredentials());
 await renderMultiplePosts(12, 1, 'tag');

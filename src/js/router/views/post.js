@@ -12,6 +12,7 @@ export const handleEditPost = async function (event) {
     window.location.href = `../post/edit/`;
   }
 };
+
 export const handleDeletingPost = async function (event) {
   try {
     event.preventDefault();
@@ -107,4 +108,4 @@ const renderSinglePost = async function (id) {
 // };
 
 // await renderMultiplePosts(12, 1, 'tag');
-await renderSinglePost(1060);
+// await renderSinglePost(1060);
