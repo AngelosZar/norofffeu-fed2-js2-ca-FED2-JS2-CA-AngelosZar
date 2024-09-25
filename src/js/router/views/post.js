@@ -108,4 +108,4 @@ const renderSinglePost = async function (id) {
 // };
 
 // await renderMultiplePosts(12, 1, 'tag');
-// await renderSinglePost(1060);
+// await renderSinglePost(1069);
