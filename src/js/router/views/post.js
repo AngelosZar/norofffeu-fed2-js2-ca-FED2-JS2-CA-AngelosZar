@@ -46,10 +46,10 @@ const renderSinglePost = async function (id) {
     const html = ` 
           <div class="card-for-posts">
             <h3 class="title-for-post">${post.title}</h3>
-            <p class="body-for-post">${post.body}</p>
-            <p class="tags-for-post">${post.tags.join(' / ')}</p>
-            <img class="media-for-post" src="${post.media.url}" alt="${
-      post.media.alt
+            <p class="body-for-post">${post?.body}</p>
+            <p class="tags-for-post">${post?.tags.join(' / ')}</p>
+            <img class="media-for-post" src="${post.media?.url}" alt="${
+      post.media?.alt
     }" />
      <a href="" id="clickOnEditAPost" class="btn-action1" data-post-id="${
        post.id
@@ -81,8 +81,8 @@ const renderMultiplePosts = async function (limit, page, tag) {
       const html = `
           <div class="card-for-posts">
             <h3 class="title-for-post">${post.title}</h3>
-            <p class="body-for-post">${post.body}</p>
-            <p class="tags-for-post">${post.tags.join(' / ')}</p>
+            <p class="body-for-post">${post?.body}</p>
+            <p class="tags-for-post">${post?.tags.join(' / ')}</p>
             <img class="media-for-post" src="${post?.media?.url ?? ''}" alt="${
         post?.media?.alt ?? ''
       }" />
@@ -107,4 +107,4 @@ const renderMultiplePosts = async function (limit, page, tag) {
 };
 
 await renderMultiplePosts(12, 1, 'tag');
-await renderSinglePost(600);
+await renderSinglePost(1069);
