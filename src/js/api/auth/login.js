@@ -16,13 +16,23 @@ export async function login({ email, password }) {
       const responseData = await res.json();
       const accessToken = responseData.data.accessToken;
       const currentUser = responseData.data.name;
+      const userData = {
+        name: responseData.data.name,
+        bio: responseData.data.bio,
+        avatarImg: responseData.data.avatar.url,
+        avatarAlt: responseData.data.avatar.alt,
+        bannerImg: responseData.data.banner.url,
+        bannerAlt: responseData.data.banner.alt,
+      };
+
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('name', responseData.data.name);
+      localStorage.setItem('userData', JSON.stringify(userData));
       confirm('You are now logged in');
-      return { responseData, accessToken, currentUser };
+      window.location.href = '/home';
+      return { responseData, accessToken, currentUser, userData };
     } else {
       alert('Invalid username or password\nPlease try again');
-      //   cannot reset form here reset on onlogin page
       return false;
     }
   } catch (error) {

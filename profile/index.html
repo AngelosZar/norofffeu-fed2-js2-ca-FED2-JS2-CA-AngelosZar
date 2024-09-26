@@ -25,16 +25,36 @@
         />
       </div>
     </header>
-    <h1>Profile</h1>
-
-    <form name="updateProfile">
-      <button>Update Profile</button>
-    </form>
-    <a href="../post/create/">Create a new post</a>
-    <a href="../post/edit/">edit a post</a>
-    <a href="../post/">see posts</a>
 
     <main>
+      <h1>Profile</h1>
+
+      <!--  -->
+      <div class="profile-container">
+        <div class="profile-banner">
+          <img src="banner.jpg" alt="Profile Banner" class="banner-img" />
+        </div>
+        <div class="profile-info">
+          <img src="avatar.jpg" alt="User Avatar" class="avatar-img" />
+          <h1 class="user-name"></h1>
+        </div>
+        <div class="user-details">
+          <p>
+            <strong>Bio:</strong>
+          </p>
+          <p><strong>Location:</strong> Oslo , Norway</p>
+          <p><strong>Followers:</strong> 1</p>
+        </div>
+      </div>
+      <!--  -->
+      <a href="../post/create/">Create a new post</a>
+      <a href="../post/edit/">edit a post</a>
+      <a href="../post/">see posts</a>
+      <form name="updateProfile"></form>
+      <!--  -->
+        <button>Update Profile</button>
+        <!--  -->
+      </form>
       <section>
         <h1>Your latest posts</h1>
         <div id="profile-post-feed"></div>
