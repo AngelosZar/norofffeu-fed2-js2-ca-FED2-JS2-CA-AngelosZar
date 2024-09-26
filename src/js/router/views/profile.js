@@ -18,15 +18,36 @@ const fetchUserInfo = function () {
   // return userData;
   return { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt };
 };
+
 //
+const renderProfileHero = function () {
+  const { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt } =
+    fetchUserInfo();
+  // const profileContainer = document.querySelector('.profile-container');
+  // const profileBanner = document.querySelector('.profile-banner');
+  const domBannerImg = document.querySelector('.banner-img');
+  // const profileInfo = document.querySelector('.profile-info');
+  const domAvatarImg = document.querySelector('.avatar-img');
+  const userName = document.querySelector('.user-name');
+  // const userDetails = document.querySelector('.user-details');
+
+  if (bannerImg) {
+    domBannerImg.src = bannerImg;
+    domBannerImg.alt = bannerAlt || 'Profile banner';
+  }
+  if (avatarImg) {
+    domAvatarImg.src = avatarImg;
+    domAvatarImg.alt = avatarAlt || 'Profile avatar';
+  }
+  userName.textContent = name;
+};
+
 const profileMain = async function () {
   const username = localStorage.getItem('name');
-  fetchUserInfo();
   try {
     const responseData = await readPostsByUser(username);
-    console.log(responseData);
+    renderProfileHero();
     if (responseData && responseData.length > 0) {
-      // Assuming you have a function like 'generateHtml' to render the posts
       await generateHtml('profile-post-feed', responseData);
     } else {
       console.log('No posts found');
