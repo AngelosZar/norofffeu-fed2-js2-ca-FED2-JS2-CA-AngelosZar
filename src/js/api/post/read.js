@@ -22,7 +22,9 @@ const apiGetRequest = async function (url, method = 'GET') {
     }
 
     return responseData.data;
-  } catch (error) {}
+  } catch (error) {
+    console.error('Error:', responseData.errors[0].message);
+  }
 };
 export async function readPost(id) {
   return await apiGetRequest(`${API_SOCIAL_POSTS}/${id}`);
