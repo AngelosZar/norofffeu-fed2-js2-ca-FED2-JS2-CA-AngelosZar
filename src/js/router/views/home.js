@@ -1,8 +1,9 @@
 import { authGuard } from '../../utilities/authGuard';
-import { handleDeletingPost } from '../../router/views/post';
-import { handleEditPost } from '../../router/views/post';
+import { handleDeletingPost } from '../../router/views/helper';
+import { handleEditPost } from '../../router/views/helper';
 import { readPosts } from '../../api/post/read';
 import { checkForCredentials } from '../../router/views/auth';
+import { handleMoveToSingleView } from '../../router/views/helper.js';
 authGuard();
 
 const renderMultiplePosts = async function (limit, page, tag) {
@@ -23,20 +24,16 @@ const renderMultiplePosts = async function (limit, page, tag) {
               <img class="media-for-post" src="${
                 post?.media?.url ?? ''
               }" alt="${post?.media?.alt ?? ''}" />
-        
-               <a href="../post/edit/" class="btn-action1" data-post-id="${
-                 post.id
-               }" >Edit Post</a>
-              <a href="#" id="deleteCurrentPost" class="btn-action1">Delete Post</a>
-             </div> `;
+              `;
 
       parentContainer.insertAdjacentHTML('beforeend', html);
       const postId = post.id;
       console.log(postId);
       return postId;
     });
-    parentContainer.addEventListener('click', handleDeletingPost);
-    parentContainer.addEventListener('click', handleEditPost);
+    // parentContainer.addEventListener('click', handleDeletingPost);
+    // parentContainer.addEventListener('click', handleEditPost);
+    parentContainer.addEventListener('click', handleMoveToSingleView);
   } catch (error) {
     alert(error);
     throw error;
