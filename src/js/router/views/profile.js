@@ -44,9 +44,9 @@ const renderProfileHero = function () {
 
 const profileMain = async function () {
   const username = localStorage.getItem('name');
+  renderProfileHero();
   try {
     const responseData = await readPostsByUser(username);
-    renderProfileHero();
     if (responseData && responseData.length > 0) {
       await generateHtml('profile-post-feed', responseData);
     } else {
