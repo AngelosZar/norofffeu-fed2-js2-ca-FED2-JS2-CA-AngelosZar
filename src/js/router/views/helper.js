@@ -44,7 +44,10 @@ export const handleMoveToSingleView = function (event) {
     const postID = event.target.dataset.postId;
     console.log(postID);
     localStorage.setItem('postID', postID);
-    window.location.href = `../post/`;
+    // if (window.location.pathname === `/post/`) {
+    //   return;
+    // }
+    window.location.href = `/post/`;
   }
 };
 

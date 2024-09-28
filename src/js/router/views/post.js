@@ -33,5 +33,12 @@ export const renderMultiplePosts = async function (limit, page, tag) {
   }
 };
 
-await renderMultiplePosts(12, 1, 'tag');
-await renderSinglePost(1072);
+// await renderMultiplePosts(12, 1, 'tag');
+// await renderSinglePost(1072);
+const main = async function () {
+  const id = localStorage.getItem('postID');
+  console.log(id);
+  await renderMultiplePosts(12, 1, 'tag');
+  await renderSinglePost(id);
+};
+main();
