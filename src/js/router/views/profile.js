@@ -1,6 +1,5 @@
 import { authGuard } from '../../utilities/authGuard';
 import { readPostsByUser } from '../../api/post/read.js';
-import { renderMultiplePosts } from '../../router/views/post.js';
 import { generateHtml } from '../../router/views/helper.js';
 
 authGuard();

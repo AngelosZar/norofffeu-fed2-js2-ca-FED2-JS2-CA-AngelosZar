@@ -2,6 +2,7 @@ import { readPost, readPosts } from '../../api/post/read';
 import { deletePost } from '../../api/post/delete';
 import { handleDeletingPost } from '../../router/views/helper';
 import { handleEditPost } from '../../router/views/helper';
+import { handleMoveToSingleView } from '../../router/views/helper';
 import { generateHtml } from '../../router/views/helper.js';
 
 const renderSinglePost = async function (id, container = 'single_post') {
@@ -32,8 +33,5 @@ export const renderMultiplePosts = async function (limit, page, tag) {
   }
 };
 
-const main = async function () {
-  // await renderMultiplePosts(12, 1, 'tag');
-  // await renderSinglePost(1072);
-};
-main();
+await renderMultiplePosts(12, 1, 'tag');
+await renderSinglePost(1072);

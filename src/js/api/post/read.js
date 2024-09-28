@@ -26,6 +26,7 @@ const apiGetRequest = async function (url, method = 'GET') {
     console.error('Error:', responseData.errors[0].message);
   }
 };
+
 export async function readPost(id) {
   return await apiGetRequest(`${API_SOCIAL_POSTS}/${id}`);
 }
