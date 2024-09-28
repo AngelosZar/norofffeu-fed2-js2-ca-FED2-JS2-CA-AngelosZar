@@ -46,16 +46,34 @@
           <p><strong>Followers:</strong> 1</p>
         </div>
         <div class="action-bar">
-          <a href="../post/create/" class="primary__button" >Create a new post</a>
-          <a href="../post/edit/" class="primary__button" >edit a post</a>
-          <a href="../post/" class="primary__button" >see posts</a></div>
-          <form name="updateProfile"></form>
-  
-        <button>Update Profile</button>
-       
-      </form>
+          <a href="../post/create/" class="primary__button"
+            >Create a new post</a
+          >
+          <a href="../post/edit/" class="primary__button">edit a post</a>
+          <a href="../post/" class="primary__button">see posts</a>
+        </div>
+        <div class="follow-container">
+          <!-- method put or post and action /follow and unfollow -->
+          <form action="">
+            <label for="follow">Follow a user</label>
+            <input
+              type="text"
+              name="follow"
+              id="followUser"
+              placeholder="Username "
+            />
+            <button>Follow</button>
+          </form>
+          <br />
+          <div>
+            <form action=""></form>
+            <label for="unfollow">Unfollow a user</label> <input type="text" name="unfollow" id="unfollowUser" placeholder="Username "/>
+            <button>Unfollow</button>
+          </form>
+          </div>
+        </div>
       </div>
-   
+
       <section>
         <h1>Your latest posts</h1>
         <div id="profile-post-feed"></div>
