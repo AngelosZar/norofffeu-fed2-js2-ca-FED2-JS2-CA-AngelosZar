@@ -17,6 +17,7 @@ export async function onUpdatePost(event) {
     if (res) {
       form.reset();
       alert('Post was updated successfully  ');
+      location.reload();
     }
   } catch (error) {
     alert(`An error occurred: ${error.message}`);
@@ -28,8 +29,5 @@ const displayEditingPost = async function () {
   const post = await readPost(id);
   const parentContainer = document.querySelector('#current-post-on-edit');
   generateHtml('current-post-on-edit', [post]);
-  console.log(parentContainer);
-  console.log(id);
-  console.log(post);
 };
 displayEditingPost();
