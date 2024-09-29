@@ -20,6 +20,7 @@ export const grabUserInput = function (event) {
 export async function onCreatePost(event) {
   event.preventDefault();
   const form = event.target;
+  console.log(form);
   try {
     const userInput = grabUserInput(event);
     const createdPost = await createPost({ userInput });

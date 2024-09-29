@@ -1,5 +1,7 @@
 import { grabUserInput } from '../../ui/post/create';
 import { updatePost } from '../../api/post/update';
+import { readPost } from '../../api/post/read';
+import { generateHtml } from '../../router/views/helper';
 
 export async function onUpdatePost(event) {
   event.preventDefault();
@@ -21,3 +23,13 @@ export async function onUpdatePost(event) {
     throw error;
   }
 }
+const displayEditingPost = async function () {
+  const id = localStorage.getItem('postID');
+  const post = await readPost(id);
+  const parentContainer = document.querySelector('#current-post-on-edit');
+  generateHtml('current-post-on-edit', [post]);
+  console.log(parentContainer);
+  console.log(id);
+  console.log(post);
+};
+displayEditingPost();

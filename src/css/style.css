@@ -153,3 +153,11 @@ button:focus {
   gap: 10px;
   align-items: flex-start;
 }
+
+#editPostContent {
+  display: flex;
+  align-items: center;
+}
+#current-post-on-edit {
+  max-width: 50%;
+}
