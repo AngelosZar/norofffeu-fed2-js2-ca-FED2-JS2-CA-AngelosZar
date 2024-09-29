@@ -19,34 +19,18 @@ export async function onRegister(event) {
       ? { url: profileImg, alt: profileImgAlt || '' }
       : undefined,
   };
-  console.log(userRegisteringData);
-  //   return userRegisteringData;
   try {
     const res = await register(userRegisteringData);
+    if (res.ok === false) {
+      alert(res.errors[0].message);
+      throw new Error(res.errors[0].message);
+    }
     alert('User registered successfully');
-    // problem redirecting to login page
-    // window.location.href = '/auth/login/';
-    // window.assign('/auth/login/');
-    // window.location.replace('/auth/login/');
-    // /auth/login/
+    window.location.href = '/auth/login/';
   } catch (error) {
     console.error('Error:', error);
-    console.log(error);
+    throw error;
+  } finally {
+    form.reset();
   }
 }
-
-// {
-//     "name": "3XX8DE9Xw0maknTwcMS8",
-//     "email": "user@example.com",
-//     "bio": "string",
-//     "avatar": {
-//       "url": "string",
-//       "alt": ""
-//     },
-//     "banner": {
-//       "url": "string",
-//       "alt": ""
-//     },
-//     "venueManager": true,
-//     "password": "stringst"
-//   }

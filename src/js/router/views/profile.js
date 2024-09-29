@@ -78,7 +78,7 @@ const profileMain = async function () {
       await generateHtml('profile-post-feed', responseData);
       await eventListeners();
     } else {
-      console.log('No posts found');
+      console.error('No posts found');
     }
   } catch (error) {
     console.error('Error fetching posts:', error);

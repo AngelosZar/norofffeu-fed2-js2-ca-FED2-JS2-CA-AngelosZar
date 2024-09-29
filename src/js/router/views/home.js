@@ -26,7 +26,6 @@ const renderMultiplePosts = async function (limit, page, tag) {
 
       parentContainer.insertAdjacentHTML('beforeend', html);
       const postId = post.id;
-      console.log(postId);
       return postId;
     });
     parentContainer.addEventListener('click', handleMoveToSingleView);
