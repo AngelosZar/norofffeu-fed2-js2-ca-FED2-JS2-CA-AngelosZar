@@ -10,7 +10,7 @@ export async function onLogin(event) {
   if (response) {
     form.reset();
     //
-    location.href = '/index.html'; // page cannot be found in scr vies ???
+    location.href = '/'; // page cannot be found in scr vies ???
     //
   } else {
     form.reset();
