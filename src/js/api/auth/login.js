@@ -1,4 +1,5 @@
 import { API_AUTH_LOGIN } from '../../api/constants.js';
+import { API_KEY } from '../../api/constants.js';
 
 export async function login({ email, password }) {
   try {
@@ -28,6 +29,7 @@ export async function login({ email, password }) {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('name', responseData.data.name);
       localStorage.setItem('userData', JSON.stringify(userData));
+      localStorage.setItem('apiKey', API_KEY);
       confirm('You are now logged in');
       window.location.href = '/';
       return { responseData, accessToken, currentUser, userData };
