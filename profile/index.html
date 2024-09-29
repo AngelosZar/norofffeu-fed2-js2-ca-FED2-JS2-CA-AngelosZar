@@ -54,7 +54,7 @@
         </div>
         <div class="follow-container">
           <!-- method put or post and action /follow and unfollow -->
-          <form action="">
+          <form id="followForm">
             <label for="follow">Follow a user</label>
             <input
               type="text"
@@ -62,14 +62,20 @@
               id="followUser"
               placeholder="Username "
             />
-            <button>Follow</button>
+            <button type="submit">Follow</button>
           </form>
           <br />
           <div>
-            <form action=""></form>
-            <label for="unfollow">Unfollow a user</label> <input type="text" name="unfollow" id="unfollowUser" placeholder="Username "/>
-            <button>Unfollow</button>
-          </form>
+            <form id="unFollowForm">
+              <label for="unFollow">Unfollow a user</label>
+              <input
+                type="text"
+                name="unFollow"
+                id="unFollowUser"
+                placeholder="Username "
+              />
+              <button type="submit">Unfollow</button>
+            </form>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 // Use Postman, or JavaScript to get your API key
 // In Workflow we will learn how to secure this information
 
-export const API_KEY = localStorage.getItem('apiKey') || '';
+export const API_KEY =
+  localStorage.getItem('apiKey') || '58881765-2f22-43fb-9ff2-88d8bbd8a470';
 
 export const API_BASE = 'https://v2.api.noroff.dev';
 
