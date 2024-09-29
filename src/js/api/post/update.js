@@ -1,7 +1,6 @@
 import { API_SOCIAL_POSTS } from '../../api/constants';
 
 export async function updatePost(id, userInput) {
-  // export async function updatePost(id, { title, body, tags, media }) {
   try {
     const response = await fetch(`${API_SOCIAL_POSTS}/${id}`, {
       method: 'PUT',
@@ -21,6 +20,6 @@ export async function updatePost(id, userInput) {
     return responseData;
   } catch (error) {
     console.error('Update post failed:', error.message);
-    throw error; // Optionally rethrow the error for further handling
+    throw error;
   }
 }

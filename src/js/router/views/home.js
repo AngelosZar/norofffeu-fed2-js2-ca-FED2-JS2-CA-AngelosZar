@@ -1,6 +1,4 @@
 import { authGuard } from '../../utilities/authGuard';
-import { handleDeletingPost } from '../../router/views/helper';
-import { handleEditPost } from '../../router/views/helper';
 import { readPosts } from '../../api/post/read';
 import { checkForCredentials } from '../../router/views/auth';
 import { handleMoveToSingleView } from '../../router/views/helper.js';
@@ -31,8 +29,6 @@ const renderMultiplePosts = async function (limit, page, tag) {
       console.log(postId);
       return postId;
     });
-    // parentContainer.addEventListener('click', handleDeletingPost);
-    // parentContainer.addEventListener('click', handleEditPost);
     parentContainer.addEventListener('click', handleMoveToSingleView);
   } catch (error) {
     alert(error);
@@ -40,6 +36,5 @@ const renderMultiplePosts = async function (limit, page, tag) {
   }
 };
 
-// work on this
 document.addEventListener('DOMcontentLoaded', checkForCredentials());
 await renderMultiplePosts(12, 1, 'tag');

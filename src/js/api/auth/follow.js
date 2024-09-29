@@ -1,6 +1,4 @@
 import { API_BASE } from '../../api/constants';
-import { API_SOCIAL_PROFILES_FOLLOW } from '../../api/constants';
-import { API_SOCIAL_PROFILES_UNFOLLOW } from '../../api/constants';
 
 const apiFollowAndUnfollowRequest = async function (apiUrl) {
   try {
@@ -16,8 +14,7 @@ const apiFollowAndUnfollowRequest = async function (apiUrl) {
       const errors = await response.json();
       alert(errors.errors[0].message);
     }
-    const res = await response.json();
-    console.log(res);
+    return response;
   } catch (error) {
     console.error('Error:', responseData.errors[0].message);
   }
@@ -25,15 +22,28 @@ const apiFollowAndUnfollowRequest = async function (apiUrl) {
 
 export async function unFollowUser(username) {
   const apiUrl = `${API_BASE}/social/profiles/${username}/unfollow`;
-  await apiFollowAndUnfollowRequest(apiUrl);
+  try {
+    const response = await apiFollowAndUnfollowRequest(apiUrl);
+    if (!response.ok) alert('Something went wrong ');
+    if (response.ok) {
+      alert(`You are now NOT following ${username}`);
+    }
+    return response;
+  } catch (error) {
+    return null;
+  }
 }
 
 export async function followUser(username) {
   const apiUrl = `${API_BASE}/social/profiles/${username}/follow`;
-  await apiFollowAndUnfollowRequest(apiUrl);
+  try {
+    const response = await apiFollowAndUnfollowRequest(apiUrl);
+    if (!response.ok) alert('Something went wrong ');
+    if (response.ok) {
+      alert(`You are now following ${username}`);
+    }
+    return response;
+  } catch (error) {
+    return null;
+  }
 }
-// console.log('⬇️');
-// await unFollowUser('GaryTheSnail');
-// await followUser('GaryTheSnail');
-// await followUser('angZar');
-// await unFollowUser('angZar');

@@ -9,69 +9,37 @@ authGuard();
 const fetchUserInfo = function () {
   const user = localStorage.getItem('userData');
   const userData = JSON.parse(user);
-  console.log(userData);
   const name = userData.name;
   const bio = userData?.bio;
   const avatarImg = userData?.avatarImg;
   const avatarAlt = userData?.avatarAlt;
   const bannerImg = userData?.bannerImg;
   const bannerAlt = userData?.bannerAlt;
-  // return userData;
   return { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt };
 };
 
-//
-const followForm = document.querySelector('#followForm');
-const grabUserInput = function (event) {
-  // const qqq = event.target.value;
-  // console.log(qq);
-  // console.log(followForm);
-  const userName = document.querySelector('#followUser').value;
-  console.log(userName);
-};
 const eventListeners = async function () {
   followForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const userName = document.querySelector('#followUser').value;
-    console.log(userName);
     try {
-      if (!userName) {
-        alert('Please enter a username to Follow');
-        return;
-      }
       await followUser(userName);
-      const res = await readPostsByUser(userName);
-      console.log(res);
-      if (!res.ok) {
-        console.log('Error following user:');
-      }
-      followForm.reset();
     } catch (error) {
+      throw error;
+    } finally {
       followForm.reset();
     }
   });
 
-  const unFollowForm = document.querySelector('#unFollowForm');
   unFollowForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const userName = document.querySelector('#unFollowUser').value;
-    console.log(userName);
     try {
-      if (!userName) {
-        alert('Please enter a username to unfollow');
-        return;
-      }
       await unFollowUser(userName);
-      const res = await readPostsByUser(userName);
-      console.log(res);
-      if (!res.code === 404) {
-        const errorRes = await res.json();
-        console.log('Error unfollowing user:', errorRes);
-        followForm.reset();
-      }
-      return res;
     } catch (error) {
-      followForm.reset();
+      throw error;
+    } finally {
+      unFollowForm.reset();
     }
   });
 };
@@ -101,6 +69,8 @@ const renderProfileHero = function () {
 
 const profileMain = async function () {
   const username = localStorage.getItem('name');
+  const followForm = document.querySelector('#followForm');
+  const unFollowForm = document.querySelector('#unFollowForm');
   renderProfileHero();
   try {
     const responseData = await readPostsByUser(username);

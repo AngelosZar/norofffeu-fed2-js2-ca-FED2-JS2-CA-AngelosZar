@@ -1,8 +1,4 @@
 import { readPost, readPosts } from '../../api/post/read';
-import { deletePost } from '../../api/post/delete';
-import { handleDeletingPost } from '../../router/views/helper';
-import { handleEditPost } from '../../router/views/helper';
-import { handleMoveToSingleView } from '../../router/views/helper';
 import { generateHtml } from '../../router/views/helper.js';
 
 const renderSinglePost = async function (id, container = 'single_post') {

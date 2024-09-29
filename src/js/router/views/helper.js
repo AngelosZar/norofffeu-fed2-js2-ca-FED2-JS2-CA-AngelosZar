@@ -33,27 +33,18 @@ export const handleDeletingPost = async function (event) {
 };
 export const handleMoveToSingleView = function (event) {
   event.preventDefault();
-  console.log('clicked');
   if (
     event.target.matches('.card-for-posts') ||
     event.target.matches('.media-for-post')
   ) {
-    console.log(event.target);
-    console.log(event.target.dataset);
-    // console.log(event.target.dataset.postId);
     const postID = event.target.dataset.postId;
-    console.log(postID);
     localStorage.setItem('postID', postID);
-    // if (window.location.pathname === `/post/`) {
-    //   return;
-    // }
     window.location.href = `/post/`;
   }
 };
 
 export const generateHtml = async function (parentDiv, responseData) {
   const parentContainer = document.querySelector(`#${parentDiv}`);
-  console.log(parentContainer);
   responseData.forEach(post => {
     const html = `
         <div class="card-for-posts" data-post-id="${post.id}">
@@ -75,7 +66,6 @@ export const generateHtml = async function (parentDiv, responseData) {
 
     parentContainer.insertAdjacentHTML('beforeend', html);
     const postId = post.id;
-    // console.log(postId);
     return postId;
   });
   parentContainer.addEventListener('click', handleDeletingPost);
