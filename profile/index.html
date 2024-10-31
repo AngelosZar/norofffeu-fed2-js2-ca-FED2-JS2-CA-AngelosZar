@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,11 +18,7 @@
         <button id="logout-btn" class="header__button">Logout</button>
       </div>
       <div class="header__right">
-        <img
-          src="/images/noroff-logo.png"
-          alt="Noroff Logo"
-          class="header__logo"
-        />
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="header__logo" />
       </div>
     </header>
 
@@ -46,9 +42,7 @@
           <p><strong>Followers:</strong> 1</p>
         </div>
         <div class="action-bar">
-          <a href="../post/create/" class="primary__button"
-            >Create a new post</a
-          >
+          <a href="../post/create/" class="primary__button">Create a new post</a>
           <a href="../post/edit/" class="primary__button">edit a post</a>
           <a href="../post/" class="primary__button">see posts</a>
         </div>
@@ -56,24 +50,14 @@
           <!-- method put or post and action /follow and unfollow -->
           <form id="followForm">
             <label for="followUser">Follow a user</label>
-            <input
-              type="text"
-              name="follow"
-              id="followUser"
-              placeholder="Username "
-            />
+            <input type="text" name="follow" id="followUser" placeholder="Username " />
             <button type="submit">Follow</button>
           </form>
           <br />
           <div>
             <form id="unFollowForm">
               <label for="unFollowUser">Unfollow a user</label>
-              <input
-                type="text"
-                name="unFollow"
-                id="unFollowUser"
-                placeholder="Username "
-              />
+              <input type="text" name="unFollow" id="unFollowUser" placeholder="Username " />
               <button type="submit">Unfollow</button>
             </form>
           </div>

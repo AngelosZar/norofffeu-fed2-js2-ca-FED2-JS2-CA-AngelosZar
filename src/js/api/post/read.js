@@ -30,9 +30,7 @@ export async function readPost(id) {
 }
 
 export async function readPosts(limit = 12, page = 1, tag) {
-  const url = `${API_SOCIAL_POSTS}?limit=${limit}&page=${page}${
-    tag ? `&tag=${tag}` : ''
-  }`;
+  const url = `${API_SOCIAL_POSTS}?limit=${limit}&page=${page}${tag ? `&tag=${tag}` : ''}`;
   return await apiGetRequest(url);
 }
 

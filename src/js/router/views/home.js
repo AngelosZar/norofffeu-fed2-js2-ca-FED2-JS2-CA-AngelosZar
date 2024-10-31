@@ -13,7 +13,7 @@ const renderMultiplePosts = async function (limit, page, tag) {
     }
 
     const parentContainer = document.querySelector('#post-feed');
-    responseData.forEach(post => {
+    responseData.forEach((post) => {
       const html = `
             <div class="card-for-posts">
               <h3 class="title-for-post">${post.title}</h3>

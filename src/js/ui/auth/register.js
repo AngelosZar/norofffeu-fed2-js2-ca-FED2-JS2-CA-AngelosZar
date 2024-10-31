@@ -15,9 +15,7 @@ export async function onRegister(event) {
     email: email,
     password: password,
     bio: bio || undefined,
-    avatar: profileImg
-      ? { url: profileImg, alt: profileImgAlt || '' }
-      : undefined,
+    avatar: profileImg ? { url: profileImg, alt: profileImgAlt || '' } : undefined,
   };
   try {
     const res = await register(userRegisteringData);

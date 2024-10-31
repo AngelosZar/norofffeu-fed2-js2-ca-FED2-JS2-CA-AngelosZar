@@ -46,8 +46,7 @@ const eventListeners = async function () {
 
 //
 const renderProfileHero = function () {
-  const { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt } =
-    fetchUserInfo();
+  const { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt } = fetchUserInfo();
   // const profileContainer = document.querySelector('.profile-container');
   // const profileBanner = document.querySelector('.profile-banner');
   const domBannerImg = document.querySelector('.banner-img');

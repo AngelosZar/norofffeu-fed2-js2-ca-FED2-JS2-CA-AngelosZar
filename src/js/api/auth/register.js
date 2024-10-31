@@ -19,9 +19,7 @@ export async function register({ name, email, password, bio, avatar }) {
       const errorResponse = await res.json();
       let mappedErrors = 'Unexpected error';
       if (errorResponse.errors && errorResponse.errors.length > 0) {
-        mappedErrors = errorResponse.errors
-          .map(error => error.message)
-          .join('\n');
+        mappedErrors = errorResponse.errors.map((error) => error.message).join('\n');
       }
       alert(mappedErrors);
       //

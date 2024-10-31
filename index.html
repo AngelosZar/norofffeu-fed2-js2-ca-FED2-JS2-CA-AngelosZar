@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,24 +9,20 @@
   </head>
 
   <body>
-    <header>
-      <div class="header__left">
-        <a href="/" class="header__link active">Home</a>
-        <a href="/profile/" class="header__link">My Profile</a>
-        <a href="/auth/login/" class="header__link">Login</a>
-        <a href="/auth/register/" class="header__link">Register</a>
-        <button id="logout-btn" class="header__button">Logout</button>
+    <header class="flex justify-between">
+      <div class="">
+        <a href="/" class="p-2 pt-3">Home</a>
+        <a href="/profile/" class="p-2 pt-3">My Profile</a>
+        <a href="/auth/login/" class="">Login</a>
+        <a href="/auth/register/" class="">Register</a>
+        <button id="logout-btn" class="">Logout</button>
       </div>
-      <div class="header__right">
-        <img
-          src="/images/noroff-logo.png"
-          alt="Noroff Logo"
-          class="header__logo"
-        />
+      <div class="m-4 w-48">
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="header__logo" />
       </div>
     </header>
     <main>
-      <div class="bg-blue-500 text-white p-4">Tailwind test</div>
+      <div class="bg-blue-500 p-4 text-white">Tailwind test</div>
       <h1>Home</h1>
       <section id="homepage-overlay">
         <h1>Latest post</h1>
@@ -34,5 +30,10 @@
         <div id="post-feed"></div>
       </section>
     </main>
+
+    <footer>
+      <p>&copy; 2021 Noroff</p>
+      <a href="#">Go to top</a>
+    </footer>
   </body>
 </html>
