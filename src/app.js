@@ -1,5 +1,5 @@
 // import { readPost } from './js/api/post/read';
-import './css/style.css';
+import './css/styles.css';
 
 import router from './js/router';
 //
