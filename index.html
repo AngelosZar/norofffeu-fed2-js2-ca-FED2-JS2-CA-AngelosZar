@@ -13,25 +13,62 @@
     <header class="sticky top-0 z-50 w-full bg-white shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0">
         <div class="flex h-20 items-center justify-between">
-        <!-- Logo placeholder // maybe change for dark mode >? -->
-        <a href="/" class="flex-shrink-0">
-          <div class="w-28 md:w-36">
-            <img src="/images/noroff-logo.png" alt="Noroff Logo" class="h-auto w-full" />
-          </div>
-        </a>
-        <!-- desktop nav  -->
-         <nav class="aria-label='Main nav' hidden md:flex md:items-center md:space-x-8 ">
-          <a href="/" class="text-black hover:text-blue-600 hover:font-bold text-base font-semibold lg:text-lg transition-colors">Home</a>
-          <a href="/profile/" class="text-black hover:text-blue-600 hover:font-bold text-base font-semibold lg:text-lg transition-colors">My Profile</a>
-          <a href="/auth/login/" class="text-black hover:text-blue-600 hover:font-bold text-base font-semibold lg:text-lg transition-colors">Login</a>
-          <a href="/auth/register/" class="text-black hover:text-blue-600 hover:font-bold text-base font-semibold lg:text-lg transition-colors">Register</a>
-          <a href="#" id="desktop-logout-btn" class="text-black hover:text-blue-600 hover:font-bold text-base font-semibold lg:text-lg transition-colors">Log out</a>
-         </nav>
-         <!-- hamburger -->
-         <!-- Mobile nav -->
-         <nav class="aria-label='Mobile nav'   "></nav>
-         <!-- x to close hamburger button -->
-      </div>
+          <!-- Logo placeholder // maybe change for dark mode >? -->
+          <a href="/" class="flex-shrink-0">
+            <div class="w-28 md:w-36">
+              <img src="/images/noroff-logo.png" alt="Noroff Logo" class="h-auto w-full" />
+            </div>
+          </a>
+          <!-- desktop nav  -->
+          <nav class="aria-label='Main nav' hidden md:flex md:items-center md:space-x-8">
+            <a
+              href="/"
+              class="text-base font-semibold text-black transition-colors hover:font-bold hover:text-blue-600 lg:text-lg"
+              >Home</a
+            >
+            <a
+              href="/profile/"
+              class="text-base font-semibold text-black transition-colors hover:font-bold hover:text-blue-600 lg:text-lg"
+              >My Profile</a
+            >
+            <a
+              href="/auth/login/"
+              class="text-base font-semibold text-black transition-colors hover:font-bold hover:text-blue-600 lg:text-lg"
+              >Login</a
+            >
+            <a
+              href="/auth/register/"
+              class="text-base font-semibold text-black transition-colors hover:font-bold hover:text-blue-600 lg:text-lg"
+              >Register</a
+            >
+            <a
+              href="#"
+              id="desktop-logout-btn"
+              class="text-base font-semibold text-black transition-colors hover:font-bold hover:text-blue-600 lg:text-lg"
+              >Log out</a
+            >
+          </nav>
+          <!-- hamburger -->
+          <button
+            id="hamburger-btn"
+            class="inline-flex items-center justify-center p-2 focus:outline-none focus:ring-2 md:hidden"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="black">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <!-- Mobile nav -->
+          <!-- <nav class="aria-label='Mobile nav'   "></nav> -->
+          <!-- x to close hamburger button -->
+        </div>
+      </section>
     </header>
     <!-- Header end -->
     <main class="mx-auto flex flex-col justify-center" id="main">
