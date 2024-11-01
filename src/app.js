@@ -5,8 +5,13 @@ import router from './js/router';
 //
 import { onLogout } from './js/ui/auth/logout';
 import { followUser } from './js/api/auth/follow';
+import { initNavigationMenu } from './js/utilities/burgerMenuHandler.js';
 // test api key fetching function
 // import { getKey } from './js/api/auth/key';
 // await getKey();
-await router(window.location.pathname);
-onLogout();
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await router(window.location.pathname);
+  initNavigationMenu();
+  onLogout();
+});
