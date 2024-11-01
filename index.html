@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="sm:scroll-smooth">
   <head>
     <meta charset="UTF-8" />
 
@@ -9,36 +9,35 @@
   </head>
 
   <body class="flex min-h-screen max-w-screen-2xl flex-col">
-    <header
-      class="sticky top-0 z-10 mx-auto flex w-full justify-between bg-white px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0"
-      id="header"
-    >
-      <div class="m-4 min-w-28 max-w-36">
-        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="header__logo" />
+    <!-- Header start -->
+    <header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+      <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0">
+        <div class="flex h-20 items-center justify-between">
+        <!-- Logo placeholder // maybe change for dark mode >? -->
+        <a href="/" class="flex-shrink-0">
+          <div class="w-28 md:w-36">
+            <img src="/images/noroff-logo.png" alt="Noroff Logo" class="h-auto w-full" />
+          </div>
+        </a>
+        <!-- desktop nav  -->
+         <!-- Mobile nav -->
       </div>
-      <button id="mobile-open-btn" class="text-5xl focus:outline-none sm:hidden">&#9776;</button>
-      <nav
-        class="aria-label='main': hidden sm:flex sm:items-center sm:justify-center [&>a]:text-base [&>a]:font-semibold [&>a]:lg:text-2xl"
-      >
-        <a href="/" class="m-4 sm:text-lg">Home</a>
-        <a href="/profile/" class="m-4 sm:text-lg">My Profile</a>
-        <a href="/auth/login/" class="m-4 sm:text-lg">Login</a>
-        <a href="/auth/register/" class="m-4 sm:text-lg">Register</a>
-        <a href="#" class="m-4 sm:text-lg" id="logout-btn">Log out</a>
-        <!-- <button id="logout-btn" class="">Logout</button> -->
-      </nav>
     </header>
-    <main class="flex flex-col items-center">
-      <div class="bg-blue-500 p-4 text-white">Tailwind test</div>
+    <!-- Header end -->
+    <main class="mx-auto flex flex-col justify-center" id="main">
       <section id="homepage-overlay">
         <h1>Latest posts</h1>
         <div id="post-feed"></div>
       </section>
     </main>
-
+    <!--  -->
     <footer class="m-6 flex justify-around">
-      <p>&copy; 2021 Noroff</p>
-      <a href="#header">Go to top</a>
+      <a href="#main">Go to top</a>
+      <div>
+        <p>&copy; 2021 Noroff</p>
+        <p>All rights reserved</p>
+      </div>
+
       <!-- add smooth scrolling -->
     </footer>
   </body>
