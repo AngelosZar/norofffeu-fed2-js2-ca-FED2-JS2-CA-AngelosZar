@@ -8,7 +8,11 @@ export default {
     './profile/**/*.{js,html}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        xs: '500px',
+      },
+    },
   },
   plugins: [],
 };

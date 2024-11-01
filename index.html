@@ -8,32 +8,38 @@
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body>
-    <header class="flex justify-between">
-      <div class="">
-        <a href="/" class="p-2 pt-3">Home</a>
-        <a href="/profile/" class="p-2 pt-3">My Profile</a>
-        <a href="/auth/login/" class="">Login</a>
-        <a href="/auth/register/" class="">Register</a>
-        <button id="logout-btn" class="">Logout</button>
-      </div>
-      <div class="m-4 w-48">
+  <body class="flex min-h-screen max-w-screen-2xl flex-col">
+    <header
+      class="sticky top-0 z-10 mx-auto flex w-full justify-between bg-white px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0"
+      id="header"
+    >
+      <div class="m-4 min-w-28 max-w-36">
         <img src="/images/noroff-logo.png" alt="Noroff Logo" class="header__logo" />
       </div>
+      <button id="mobile-open-btn" class="text-5xl focus:outline-none sm:hidden">&#9776;</button>
+      <nav
+        class="aria-label='main': hidden sm:flex sm:items-center sm:justify-center [&>a]:text-base [&>a]:font-semibold [&>a]:lg:text-2xl"
+      >
+        <a href="/" class="m-4 sm:text-lg">Home</a>
+        <a href="/profile/" class="m-4 sm:text-lg">My Profile</a>
+        <a href="/auth/login/" class="m-4 sm:text-lg">Login</a>
+        <a href="/auth/register/" class="m-4 sm:text-lg">Register</a>
+        <a href="#" class="m-4 sm:text-lg" id="logout-btn">Log out</a>
+        <!-- <button id="logout-btn" class="">Logout</button> -->
+      </nav>
     </header>
-    <main>
+    <main class="flex flex-col items-center">
       <div class="bg-blue-500 p-4 text-white">Tailwind test</div>
-      <h1>Home</h1>
       <section id="homepage-overlay">
-        <h1>Latest post</h1>
-        <h2>Get many posts*</h2>
+        <h1>Latest posts</h1>
         <div id="post-feed"></div>
       </section>
     </main>
 
-    <footer>
+    <footer class="m-6 flex justify-around">
       <p>&copy; 2021 Noroff</p>
-      <a href="#">Go to top</a>
+      <a href="#header">Go to top</a>
+      <!-- add smooth scrolling -->
     </footer>
   </body>
 </html>
