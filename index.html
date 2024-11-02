@@ -125,9 +125,51 @@
     </header>
     <!-- Main -->
     <main class="grid place-items-center px-2 py-4" id="main">
+      <h2>Create a new post</h2>
+      <section class="place-self-start rounded-md bg-slate-200 px-7 py-4">
+        <label for="">Whats on your mind ?</label>
+        <input type="text" />
+      </section>
+      <h2>End of section</h2>
       <section id="homepage-overlay">
         <h1>Check out your Latest posts</h1>
         <div id="post-feed"></div>
+
+        <!-- test -->
+        <div class="container mx-auto">
+          <!-- Individual Post Card -->
+          <div class="card-for-posts rounded-md bg-red-100">
+            <h3 class="title-for-post">Post Title</h3>
+            <p class="body-for-post">Post body</p>
+
+            <img
+              class="media-for-post"
+              src="https://images.unsplash.com/photo-1730388623585-ce2dec1e2355?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Image description"
+            />
+            <p class="tags-for-post">tag1 / tag2 / tag3</p>
+            <div
+              class="flex justify-around [&>a]:rounded-md [&>a]:px-4 [&>a]:py-2 [&>a]:transition-colors"
+            >
+              <a href="#" id="like-btn" class="hover:bg-slate-300">Like </a>
+              <a href="#" id="comment-btn" class="hover:bg-slate-300">Comment</a>
+              <a href="#" id="share-btn" class="hover:bg-slate-300">Share</a>
+            </div>
+          </div>
+
+          <div class="card-for-posts">
+            <h3 class="title-for-post">round 2.. another Post Title</h3>
+            <p class="body-for-post">post body</p>
+            <p class="tags-for-post">tag1 / tag2</p>
+            <img
+              class="media-for-post"
+              src="https://images.unsplash.com/photo-1725562175895-52339aa50098?q=80&w=1309&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="A carpet ?"
+            />
+          </div>
+        </div>
+
+        <!-- test -->
       </section>
     </main>
     <!--  -->

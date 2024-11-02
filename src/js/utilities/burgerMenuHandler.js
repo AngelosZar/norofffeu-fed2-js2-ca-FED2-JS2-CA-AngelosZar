@@ -11,14 +11,6 @@ export function initNavigationMenu() {
     document.body.style.overflow = isMobileMenuHidden ? 'hidden' : '';
     hamburgerBtn.setAttribute('aria-expanded', isMobileMenuHidden ? 'true' : 'false');
   }
-  //
-  // click handlers
-  // hamburgerBtn.addEventListener('click', () => {
-  //   console.log('click');
-  // });
   hamburgerBtn.addEventListener('click', toggleMobileMenu);
-  // mobileMenuCloseBtn.addEventListener('click', toggleMobileMenu);
   mobileMenu.addEventListener('click', toggleMobileMenu);
 }
-
-// add functionality to exit on esc and on clicking out of menu / x
