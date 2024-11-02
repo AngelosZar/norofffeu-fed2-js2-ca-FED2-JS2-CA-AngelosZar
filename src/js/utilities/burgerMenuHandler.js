@@ -17,7 +17,8 @@ export function initNavigationMenu() {
   //   console.log('click');
   // });
   hamburgerBtn.addEventListener('click', toggleMobileMenu);
-  mobileMenuCloseBtn.addEventListener('click', toggleMobileMenu);
+  // mobileMenuCloseBtn.addEventListener('click', toggleMobileMenu);
+  mobileMenu.addEventListener('click', toggleMobileMenu);
 }
 
-// add functionality to exit on esc and on clicking out of menu /x
+// add functionality to exit on esc and on clicking out of menu / x

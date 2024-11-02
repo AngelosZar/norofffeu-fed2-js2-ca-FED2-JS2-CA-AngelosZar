@@ -67,9 +67,9 @@
             </svg>
           </button>
           <!-- Mobile nav -->
-          <div id="mobile-menu" class=" aria-label='Mobile nav' hidden md:hidden">
+          <div id="mobile-menu" class=" aria-label='Mobile nav' hidden ">
             <div class="fixed inset-0 z-50 bg-black bg-opacity-75" aria-hidden="true"></div>
-            <div class="fixed inset-y-0 right-0 z-50 w-full bg-white">
+            <div class="fixed inset-y-0 right-0 z-50 w-full bg-white origin-top animate-open-menu">
               <div class="flex justify-end p-4">
                 <!-- btn -->
                 <button 
@@ -94,7 +94,7 @@
         </div>
       </section>
     </header>
-    <!-- Header end -->
+   <!-- Main -->
     <main class="mx-auto flex flex-col justify-center" id="main">
       <section id="homepage-overlay">
         <h1>Latest posts</h1>
@@ -102,14 +102,12 @@
       </section>
     </main>
     <!--  -->
-    <footer class="m-6 flex justify-around">
+    <footer class=" my-6  flex justify-around">
       <a href="#main">Go to top</a>
       <div>
         <p>&copy; 2021 Noroff</p>
         <p>All rights reserved</p>
       </div>
-
-      <!-- add smooth scrolling -->
     </footer>
   </body>
 </html>
