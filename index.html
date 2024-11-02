@@ -9,10 +9,10 @@
   </head>
 
   <!-- <body class="flex min-h-screen max-w-screen-2xl flex-col" > -->
-  <body class=" min-h-screen max-w-screen-2xl" >
-  <!-- <body class=" grid min-h-screen max-w-screen-2xl "> -->
+  <body class="mx-auto grid h-screen min-h-screen max-w-screen-2xl">
+    <!-- <body class=" grid min-h-screen max-w-screen-2xl "> -->
     <!-- Header start -->
-    <header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <header class="sticky top-0 z-50 w-full bg-white px-2 shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0">
         <div class="flex h-20 items-center justify-between">
           <!-- Logo placeholder // maybe change for dark mode >? -->
@@ -67,42 +67,71 @@
             </svg>
           </button>
           <!-- Mobile nav -->
-          <div id="mobile-menu" class=" aria-label='Mobile nav' hidden md:hidden">
+          <div id="mobile-menu" class="aria-label='Mobile nav' hidden md:hidden">
             <div class="fixed inset-0 z-50 bg-black bg-opacity-75" aria-hidden="true"></div>
-            <div class="fixed inset-y-0 right-0 z-50 w-full bg-white origin-top animate-open-menu">
+            <div class="animate-open-menu fixed inset-y-0 right-0 z-50 w-full origin-top bg-white">
               <div class="flex justify-end p-4">
                 <!-- btn -->
-                <button 
+                <button
                   id="mobile-close-btn"
                   class="text-black hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
                 >
                   <span class="sr-only">Close menu</span>
                   <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="black">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>
               <!--  nav -->
-              <nav class="flex flex-col items-center  sm:items-end sm:pr-14 py-6 px-4 space-y-6 justify-center">
-                <a href="/" class="text-2xl font-semibold text-black hover:text-blue-600 hover:font-bold  transition-colors">Home</a>
-                <a href="/profile/" class="text-2xl font-semibold text-black hover:text-blue-600 hover:font-bold  transition-colors">My Profile</a>
-                <a href="/auth/login/" class="text-2xl font-semibold text-black hover:text-blue-600 hover:font-bold  transition-colors">Login</a>
-                <a href="/auth/register/" class="text-2xl font-semibold text-black hover:text-blue-600 hover:font-bold  transition-colors">Register</a>
-                <a href="#" id="mobile-logout-btn" class="text-2xl font-semibold text-black hover:text-blue-600 hover:font-bold  transition-colors">Log out</a>
+              <nav
+                class="flex flex-col items-center justify-center space-y-6 px-4 py-6 sm:items-end sm:pr-14"
+              >
+                <a
+                  href="/"
+                  class="text-2xl font-semibold text-black transition-colors hover:font-bold hover:text-blue-600"
+                  >Home</a
+                >
+                <a
+                  href="/profile/"
+                  class="text-2xl font-semibold text-black transition-colors hover:font-bold hover:text-blue-600"
+                  >My Profile</a
+                >
+                <a
+                  href="/auth/login/"
+                  class="text-2xl font-semibold text-black transition-colors hover:font-bold hover:text-blue-600"
+                  >Login</a
+                >
+                <a
+                  href="/auth/register/"
+                  class="text-2xl font-semibold text-black transition-colors hover:font-bold hover:text-blue-600"
+                  >Register</a
+                >
+                <a
+                  href="#"
+                  id="mobile-logout-btn"
+                  class="text-2xl font-semibold text-black transition-colors hover:font-bold hover:text-blue-600"
+                  >Log out</a
+                >
               </nav>
             </div>
+          </div>
         </div>
       </section>
     </header>
-   <!-- Main -->
-    <main class="mx-auto flex flex-col justify-center" id="main">
+    <!-- Main -->
+    <main class="grid place-items-center px-2 py-4" id="main">
       <section id="homepage-overlay">
-        <h1>Latest posts</h1>
+        <h1>Check out your Latest posts</h1>
         <div id="post-feed"></div>
       </section>
     </main>
     <!--  -->
-    <footer class=" my-6  flex justify-around">
+    <footer class="my-6 flex justify-around">
       <a href="#main">Go to top</a>
       <div>
         <p>&copy; 2021 Noroff</p>
