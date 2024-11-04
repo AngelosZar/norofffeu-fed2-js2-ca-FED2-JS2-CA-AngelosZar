@@ -29,7 +29,7 @@ const renderMultiplePosts = async function (limit, page, tag) {
       <div class="container mx-auto max-w-[95%] md:max-w-[85%]" id="post-feed">
         <div class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white">
           <h3 class="title-for-post px-4 py-2 text-xl font-bold">${post.title}</h3>
-          <p class="body-for-post px-4 pb-2 dark:text-gray-400">${post?.body}</p>
+          <p class="body-for-post px-4 pb-4 dark:text-gray-400">${post?.body}</p>
           
           <div class="flex max-h-[36rem] max-w-[62rem] items-center justify-center overflow-hidden">
             <img
