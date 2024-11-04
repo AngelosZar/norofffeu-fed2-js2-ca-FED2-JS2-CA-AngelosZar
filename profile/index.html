@@ -8,7 +8,7 @@
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body>
+  <body class="mx-auto grid max-w-screen-2xl">
     <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
         <div class="flex h-20 items-center justify-between">
@@ -87,19 +87,26 @@
       </section>
     </header>
 
-    <main>
-      <h1>Profile</h1>
-      <h1>Get posts of a user</h1>
-      <!--  -->
-      <div class="profile-container">
-        <div class="profile-banner">
-          <img src="" alt="Profile Banner" class="banner-img" />
+    <main class="">
+      <section class="profile-banner-container flex flex-col border-x-2 border-gray-400">
+        <div
+          class="profile-banner lg:mb-18 relative mb-8 max-w-screen-2xl xs:mb-12 md:mb-14 lg:mb-20"
+        >
+          <img
+            alt="Profile Banner"
+            class="banner-img h-[15vh] w-full object-cover md:h-[20vh] lg:h-[25vh]"
+          />
+          <img
+            alt="User Avatar"
+            class="avatar-img top profile-info xs:left-6md:-bottom-14 absolute -bottom-5 left-4 h-20 w-20 rounded-full xs:-bottom-12 xs:h-28 xs:w-28 md:left-8 md:h-36 md:w-36 lg:-bottom-16 lg:left-10 lg:h-44 lg:w-44 xl:-bottom-20 xl:h-52 xl:w-52"
+          />
         </div>
-        <div class="profile-info">
-          <img src="" alt="User Avatar" class="avatar-img" />
-          <h1 class="user-name"></h1>
-        </div>
+        <!-- <div class="profile-info marg relative"> -->
+
+        <!-- avatar-img -->
+        <!-- </div> -->
         <div class="user-details">
+          <h1 class="user-name"></h1>
           <p>
             <strong>Bio:</strong>
           </p>
@@ -127,7 +134,7 @@
             </form>
           </div>
         </div>
-      </div>
+      </section>
 
       <section>
         <h1>Your latest posts</h1>
