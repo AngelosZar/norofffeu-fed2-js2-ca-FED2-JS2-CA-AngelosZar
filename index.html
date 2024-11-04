@@ -12,8 +12,8 @@
   <!-- <body class="flex min-h-screen max-w-screen-2xl flex-col" > -->
   <body class="mx-auto grid h-screen min-h-screen max-w-screen-2xl">
     <!-- Header -->
-    <header class="sticky top-0 z-50 w-full bg-white px-2 shadow-sm rounded-b-lg">
-      <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8 ">
+    <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
+      <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
         <div class="flex h-20 items-center justify-between">
           <a href="/" class="flex-shrink-0">
             <div class="w-28 md:w-36">
@@ -21,29 +21,14 @@
             </div>
           </a>
           <!-- desktop nav  -->
-          <nav class="aria-label='Main nav' hidden md:flex md:items-center md:space-x-8 [&>a]:text-black  lg:[&>a]:text-xl [&>*:hover]:text-blue-600 [&*:hover]:font-bold [&>*]:font-semibold 
-            [&>*]:transition-colors">
-            <a
-              href="/"
-              >Home</a
-            >
-            <a
-              href="/profile/"
-              >My Profile</a
-            >
-            <a
-              href="/auth/login/"
-              >Login</a
-            >
-            <a
-              href="/auth/register/"
-              >Register</a
-            >
-            <a
-              href="#"
-              id="desktop-logout-btn"
-              >Log out</a
-            >
+          <nav
+            class="aria-label='Main nav' hidden md:flex md:items-center md:space-x-8 [&*:hover]:font-bold [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors [&>a]:text-black lg:[&>a]:text-xl"
+          >
+            <a href="/">Home</a>
+            <a href="/profile/">My Profile</a>
+            <a href="/auth/login/">Login</a>
+            <a href="/auth/register/">Register</a>
+            <a href="#" id="desktop-logout-btn">Log out</a>
           </nav>
           <!-- hamburger -->
           <button
@@ -64,7 +49,9 @@
           <!-- Mobile nav -->
           <div id="mobile-menu" class="aria-label='Mobile nav' hidden md:hidden">
             <div class="fixed inset-0 z-50 bg-black bg-opacity-75" aria-hidden="true"></div>
-            <div class="fixed inset-y-0 right-0 z-50 w-full origin-top animate-open-menu bg-white dark:bg-gray-900 ">
+            <div
+              class="fixed inset-y-0 right-0 z-50 w-full origin-top animate-open-menu bg-white dark:bg-gray-900"
+            >
               <div class="flex justify-end p-4">
                 <!-- btn -->
                 <button
@@ -72,7 +59,12 @@
                   class="text-black hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
                 >
                   <span class="sr-only">Close menu</span>
-                  <svg class="h-12 w-12 dark:stroke-white" fill="none" viewBox="0 0 24 24" stroke="black">
+                  <svg
+                    class="h-12 w-12 dark:stroke-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="black"
+                  >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -84,30 +76,13 @@
               </div>
               <!-- nav -->
               <nav
-                class="flex flex-col items-center justify-center space-y-6 px-4 py-6 sm:items-end sm:pr-14 text-black [&>*:hover]:text-blue-600 dark:text-white xs:[&>*]:text-3xl sm:[&>*]:text-5xl 
-                [&>*]:font-semibold [&>*]:transition-colors "
+                class="flex flex-col items-center justify-center space-y-6 px-4 py-6 text-black sm:items-end sm:pr-14 dark:text-white [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors xs:[&>*]:text-3xl sm:[&>*]:text-5xl"
               >
-                <a
-                  href="/"   
-                  >Home</a
-                >
-                <a
-                  href="/profile/"    
-                  >My Profile</a
-                >
-                <a
-                  href="/auth/login/"   
-                  >Login</a
-                >
-                <a
-                  href="/auth/register/"   
-                  >Register</a
-                >
-                <a
-                  href="#"
-                  id="mobile-logout-btn"   
-                  >Log out</a
-                >
+                <a href="/">Home</a>
+                <a href="/profile/">My Profile</a>
+                <a href="/auth/login/">Login</a>
+                <a href="/auth/register/">Register</a>
+                <a href="#" id="mobile-logout-btn">Log out</a>
               </nav>
             </div>
           </div>
@@ -175,7 +150,8 @@
               <a href="#" id="share-btn" class="hover:bg-slate-300">Share ↪</a>
             </div>
           </div>
-        </div> -->
+         </div> -->
+        </div>
         <!-- test -->
       </section>
     </main>
