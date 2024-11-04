@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" class="sm:scroll-smooth">
+<html lang="en" class="bg-white sm:scroll-smooth dark:bg-gray-900">
+  <!-- or dark:bg-[#0A0A0F] -->
   <head>
     <meta charset="UTF-8" />
 
@@ -69,7 +70,7 @@
           <!-- Mobile nav -->
           <div id="mobile-menu" class="aria-label='Mobile nav' hidden md:hidden">
             <div class="fixed inset-0 z-50 bg-black bg-opacity-75" aria-hidden="true"></div>
-            <div class="animate-open-menu fixed inset-y-0 right-0 z-50 w-full origin-top bg-white">
+            <div class="fixed inset-y-0 right-0 z-50 w-full origin-top animate-open-menu bg-white">
               <div class="flex justify-end p-4">
                 <!-- btn -->
                 <button
@@ -125,25 +126,28 @@
     </header>
     <!-- Main -->
     <main class="grid place-items-center px-2 py-4" id="main">
-      <h2>Create a new post</h2>
+      <h2 class="dark:text-white">Create a new post</h2>
       <section class="place-self-start rounded-md bg-slate-200 px-7 py-4">
         <label for="">Whats on your mind ?</label>
         <input type="text" />
       </section>
-      <h2>End of section</h2>
-      <section id="homepage-overlay">
-        <h1>Check out your Latest posts</h1>
+      <section id="homepage-overlay" class="grid">
+        <h1 class="place-self-center pb-8 text-4xl dark:text-white">Check out your Feed</h1>
 
         <div class="container mx-auto max-w-[95%] md:max-w-[75%]" id="post-feed">
           <!-- Individual Post Card -->
-          <div class="card-for-posts rounded-md border-2 border-slate-300 bg-slate-50">
+          <!-- <div
+            class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white"
+          >
             <h3 class="title-for-post px-4 py-2 text-xl font-bold">Post Title</h3>
-            <p class="body-for-post px-4 pb-2">Post body</p>
+            <p class="body-for-post px-4 pb-2 dark:text-gray-400">Post body</p>
 
-            <div class="">
+            <div
+              class="flex max-h-[36rem] max-w-[62rem] items-center justify-center overflow-hidden"
+            >
               <img
-                class="media-for-post"
-                src="https://images.unsplash.com/photo-1730388623585-ce2dec1e2355?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="media-for-post h-auto w-full object-contain object-center"
+                src="https://images.unsplash.com/photo-1730407318819-6db610077721?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Image description"
               />
             </div>
@@ -156,17 +160,43 @@
               <a href="#" id="share-btn" class="hover:bg-slate-300">Share ↪</a>
             </div>
           </div>
-        </div>
 
+          <div
+            class="card-for-posts rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white"
+          >
+            <h3 class="title-for-post px-4 py-2 text-xl font-bold">Post Title</h3>
+            <p class="body-for-post px-4 pb-2 dark:text-gray-400">Post body</p>
+
+            <div
+              class="flex max-h-[32rem] max-w-[56rem] items-center justify-center overflow-hidden"
+            >
+              <img
+                class="media-for-post h-auto w-full object-contain object-center"
+                src="https://images.unsplash.com/photo-1730599615689-9598469712fc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Image description"
+              />
+            </div>
+            <p class="tags-for-post py-4 pl-4">tag1 / tag2 / tag3</p>
+            <div
+              class="flex justify-around pb-4 [&>a]:rounded-md [&>a]:px-4 [&>a]:py-2 [&>a]:transition-colors"
+            >
+              <a href="#" id="like-btn" class="hover:bg-slate-300">Like 👍 </a>
+              <a href="#" id="comment-btn" class="hover:bg-slate-300">Comment 💬</a>
+              <a href="#" id="share-btn" class="hover:bg-slate-300">Share ↪</a>
+            </div>
+          </div>
+        </div> -->
         <!-- test -->
       </section>
     </main>
     <!--  -->
-    <footer class="my-6 flex justify-around">
-      <a href="#main">Go to top</a>
-      <div>
-        <p>&copy; 2021 Noroff</p>
-        <p>All rights reserved</p>
+    <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
+      <div class="mb-6 flex justify-around">
+        <a href="#main">Go to top</a>
+        <div>
+          <p>&copy; 2021 Noroff</p>
+          <p>All rights reserved</p>
+        </div>
       </div>
     </footer>
   </body>
