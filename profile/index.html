@@ -94,7 +94,7 @@
         >
           <img
             alt="Profile Banner"
-            class="banner-img h-[15vh] w-full object-cover md:h-[20vh] lg:h-[25vh]"
+            class="banner-img h-[15vh] w-full object-cover md:h-[20vh] lg:h-[30vh]"
           />
           <img
             alt="User Avatar"
@@ -120,11 +120,21 @@
           <a href="../post/edit/" class="hover:bg-blue-700">Edit a post</a>
         </div>
       </section>
-      <section class="border">
-        <div class="follow-container">
+      <!-- Follow and unfollow a user -->
+      <section
+        class="m-12 flex flex-col justify-self-center rounded-md border p-8 px-[10%]"
+        id="followAndUnfollowsection"
+      >
+        <h1 class="mb-8 text-center text-2xl">Follow and unfollow a user</h1>
+        <div class="follow-container mb-4">
           <!-- method put or post and action /follow and unfollow -->
-          <form id="followForm" class="mx-auto mb-5 flex max-w-sm justify-evenly">
-            <label for="followUser" class="flex w-full items-center justify-center font-medium"
+          <form
+            id="followForm"
+            class="mx-auto mb-5 flex max-w-sm flex-wrap justify-evenly md:flex-nowrap"
+          >
+            <label
+              for="followUser"
+              class="mb-4 flex w-full items-center justify-center font-medium md:mb-0"
               >Follow a user</label
             >
             <input
@@ -132,30 +142,40 @@
               name="follow"
               id="followUser"
               placeholder="Username"
-              class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              class="block w-full max-w-40 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
             />
-            <button type="submit" class="ml-6 rounded-lg bg-blue-500 px-3 py-2 hover:bg-blue-700">
+            <button
+              type="submit"
+              class="ml-6 rounded-lg bg-blue-500 px-3 py-2 text-white hover:bg-blue-700"
+            >
               Follow
             </button>
           </form>
-          <br />
-          <div>
-            <form id="unFollowForm" class="mx-auto mb-5 flex max-w-sm justify-evenly">
-              <label for="unFollowUser" class="flex w-full items-center justify-center font-medium"
-                >Unfollow a user</label
-              >
-              <input
-                type="text"
-                name="unFollow"
-                id="unFollowUser"
-                placeholder="Username "
-                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-              />
-              <button type="submit" class="ml-6 rounded-lg bg-blue-500 px-3 py-2 hover:bg-blue-700">
-                Unfollow
-              </button>
-            </form>
-          </div>
+        </div>
+        <div>
+          <form
+            id="unFollowForm"
+            class="mx-auto mb-5 flex max-w-sm flex-wrap justify-evenly md:flex-nowrap"
+          >
+            <label
+              for="unFollowUser"
+              class="mb-4 flex w-full items-center justify-center font-medium md:mb-0"
+              >Unfollow a user</label
+            >
+            <input
+              type="text"
+              name="unFollow"
+              id="unFollowUser"
+              placeholder="Username "
+              class="block w-full max-w-40 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            />
+            <button
+              type="submit"
+              class="ml-6 rounded-lg bg-blue-500 px-3 py-2 text-white hover:bg-blue-700"
+            >
+              Unfollow
+            </button>
+          </form>
         </div>
       </section>
 
