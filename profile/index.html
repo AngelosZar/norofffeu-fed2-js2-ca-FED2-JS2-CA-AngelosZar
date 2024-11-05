@@ -87,7 +87,7 @@
       </section>
     </header>
 
-    <main class="">
+    <main class="grid">
       <section class="profile-banner-container flex flex-col border-x-2 border-b-2 border-gray-400">
         <div
           class="profile-banner lg:mb-18 relative mb-8 max-w-screen-2xl xs:mb-12 md:mb-14 lg:mb-20"
@@ -110,13 +110,17 @@
           <p><strong>Followers:</strong> 1</p>
         </div>
       </section>
-      <section>
+      <section class="m-12 flex flex-col justify-self-center rounded-md border px-[10%] pb-6">
         <!-- change to forms -->
-        <div class="action-bar">
-          <a href="../post/create/" class="primary__button">Create a new post</a>
-          <a href="../post/edit/" class="primary__button">edit a post</a>
-          <a href="../post/" class="primary__button">see posts</a>
+        <h1 class="my-8 text-center text-2xl">Quick actions</h1>
+        <div
+          class="action-bar b-4 flex flex-col flex-wrap sm:flex-row [&>*]:mb-4 [&>*]:rounded-lg [&>*]:bg-blue-500 [&>*]:px-3 [&>*]:py-2 [&>*]:text-white sm:[&>*]:mx-4"
+        >
+          <a href="../post/create/" class="hover:bg-blue-700">Create a new post</a>
+          <a href="../post/edit/" class="hover:bg-blue-700">Edit a post</a>
         </div>
+      </section>
+      <section class="border">
         <div class="follow-container">
           <!-- method put or post and action /follow and unfollow -->
           <form id="followForm" class="mx-auto mb-5 flex max-w-sm justify-evenly">
@@ -154,8 +158,9 @@
           </div>
         </div>
       </section>
-      <section>
-        <h1>Your latest posts</h1>
+
+      <section class="mt-16 flex flex-col">
+        <h1 class="my-8 text-center text-5xl">Your latest posts</h1>
         <div id="profile-post-feed"></div>
       </section>
     </main>
