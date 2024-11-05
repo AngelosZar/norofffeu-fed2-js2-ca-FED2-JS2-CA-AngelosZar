@@ -130,14 +130,26 @@
               placeholder="Username"
               class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
             />
-            <button type="submit" class="ml-6">Follow</button>
+            <button type="submit" class="ml-6 rounded-lg bg-blue-500 px-3 py-2 hover:bg-blue-700">
+              Follow
+            </button>
           </form>
           <br />
           <div>
-            <form id="unFollowForm">
-              <label for="unFollowUser">Unfollow a user</label>
-              <input type="text" name="unFollow" id="unFollowUser" placeholder="Username " />
-              <button type="submit">Unfollow</button>
+            <form id="unFollowForm" class="mx-auto mb-5 flex max-w-sm justify-evenly">
+              <label for="unFollowUser" class="flex w-full items-center justify-center font-medium"
+                >Unfollow a user</label
+              >
+              <input
+                type="text"
+                name="unFollow"
+                id="unFollowUser"
+                placeholder="Username "
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              />
+              <button type="submit" class="ml-6 rounded-lg bg-blue-500 px-3 py-2 hover:bg-blue-700">
+                Unfollow
+              </button>
             </form>
           </div>
         </div>
