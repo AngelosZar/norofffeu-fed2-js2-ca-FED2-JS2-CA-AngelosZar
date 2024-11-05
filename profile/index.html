@@ -119,10 +119,18 @@
         </div>
         <div class="follow-container">
           <!-- method put or post and action /follow and unfollow -->
-          <form id="followForm">
-            <label for="followUser">Follow a user</label>
-            <input type="text" name="follow" id="followUser" placeholder="Username " />
-            <button type="submit">Follow</button>
+          <form id="followForm" class="mx-auto mb-5 flex max-w-sm justify-evenly">
+            <label for="followUser" class="flex w-full items-center justify-center font-medium"
+              >Follow a user</label
+            >
+            <input
+              type="text"
+              name="follow"
+              id="followUser"
+              placeholder="Username"
+              class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            />
+            <button type="submit" class="ml-6">Follow</button>
           </form>
           <br />
           <div>
