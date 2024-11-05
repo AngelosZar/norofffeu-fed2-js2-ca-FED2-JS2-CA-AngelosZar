@@ -74,8 +74,9 @@ const profileMain = async function () {
   try {
     const responseData = await readPostsByUser(username);
     if (responseData && responseData.length > 0) {
-      // await generateHtml('profile-post-feed', responseData);
-      // await eventListeners();
+      //
+      await generateHtml('profile-post-feed', responseData);
+      await eventListeners();
     } else {
       console.error('No posts found');
     }

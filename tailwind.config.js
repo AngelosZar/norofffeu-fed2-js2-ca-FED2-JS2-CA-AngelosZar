@@ -11,6 +11,7 @@ export default {
     extend: {
       screens: {
         xs: '500px',
+        xxs: '365px',
       },
       keyframes: {
         'open-menu': {

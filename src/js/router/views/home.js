@@ -13,6 +13,13 @@ const renderMultiplePosts = async function (limit, page, tag) {
     }
 
     const parentContainer = document.querySelector('#post-feed');
+    // parentContainer.classList.add(
+    //   'grid',
+    //   'grid-cols-1',
+    //   'md:grid-cols-2',
+    //   'lg:grid-cols-3',
+    //   'gap-4'
+    // );
     responseData.forEach((post) => {
       // const html = `
       //       <div class="card-for-posts">
@@ -41,7 +48,7 @@ const renderMultiplePosts = async function (limit, page, tag) {
           
           <p class="tags-for-post py-4 pl-4">${post?.tags.join(' / ')}</p>
           
-          <div class="flex justify-around pb-4 [&>a]:rounded-md [&>a]:px-4 [&>a]:py-2 [&>a]:transition-colors">
+          <div class="flex justify-around pb-4 [&>a]:rounded-md [&>a]:px-4 [&>a]:py-2 [&>a]:transition-colors flex-wrap">
             <a href="#" id="like-btn" class="hover:bg-slate-300">Like 👍</a>
             <a href="#" id="comment-btn" class="hover:bg-slate-300">Comment 💬</a>
             <a href="#" id="share-btn" class="hover:bg-slate-300">Share ↪</a>
