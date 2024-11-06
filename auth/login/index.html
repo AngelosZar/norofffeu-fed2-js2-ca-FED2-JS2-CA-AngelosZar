@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-neutral-50 sm:scroll-smooth dark:bg-gray-900">
   <head>
     <meta charset="UTF-8" />
 
@@ -8,7 +8,9 @@
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body>
+  <body
+    class="mx-auto grid min-h-screen max-w-screen-2xl place-items-center text-black dark:text-white"
+  >
     <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
         <div class="flex h-20 items-center justify-between">
@@ -86,22 +88,57 @@
         </div>
       </section>
     </header>
-    <h1>Login</h1>
-    <form name="login">
-      <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" required />
-      </div>
+    <!-- Main -->
+    <main class="grid min-h-screen w-full grid-cols-1 place-items-center gap-4">
+      <section class="grid min-h-screen grid-cols-1 place-items-center md:grid-cols-2">
+        <div class="flex h-full w-full items-center justify-center px-4 py-8">
+          <div class="w-full max-w-md">
+            <h1 class="pb-8 text-3xl font-bold">Login</h1>
+            <form name="login">
+              <div class="mb-5">
+                <label for="email">Email</label>
+                <input
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pt-6 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Email@stud.noroff.no"
+                />
+              </div>
 
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required />
-      </div>
-
-      <a href="/auth/register/">Register</a>
-      <button>Login</button>
-    </form>
-    <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
+              <div class="mb-5">
+                <label for="password">Password</label>
+                <input
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pt-6 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                  placeholder="Password"
+                />
+              </div>
+              <button class="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700">
+                Login
+              </button>
+              <div class="mt-16">
+                <p>⬇️ Click here to create an acount</p>
+                <a href="/auth/register/" class="my-2 text-2xl">Register</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="hidden h-full w-full md:block">
+          <img
+            src="https://images.unsplash.com/photo-1543332164-6e82f355badc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="hello"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full border-t-2 border-t-gray-500 pt-6">
       <div class="mb-6 flex justify-around">
         <a href="#main">Go to top</a>
         <div>
