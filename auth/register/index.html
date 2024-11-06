@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
-  <!-- <html lang="en" class="dark:bg-gray-900"> -->
+<html lang="en" class="bg-neutral-50 sm:scroll-smooth dark:bg-gray-900">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body>
+  <body
+    class="mx-auto grid min-h-screen max-w-screen-2xl place-items-center text-black dark:text-white"
+  >
     <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
         <div class="flex h-20 items-center justify-between">
@@ -87,6 +87,14 @@
         </div>
       </section>
     </header>
+    <!--  -->
+    <main>
+      <section>
+        <div></div>
+        <div></div>
+      </section>
+    </main>
+    <!--  -->
     <h1>Register</h1>
 
     <form name="register">
@@ -132,7 +140,7 @@
       <a href="/auth/login/">Login</a>
       <button>Register</button>
     </form>
-    <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
+    <footer class="w-full border-t-2 border-t-gray-500 pt-6">
       <div class="mb-6 flex justify-around">
         <a href="#main">Go to top</a>
         <div>
