@@ -3,13 +3,11 @@
   <!-- or dark:bg-[#0A0A0F] -->
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <!-- <body class="flex min-h-screen max-w-screen-2xl flex-col" > -->
   <body class="mx-auto grid h-screen min-h-screen max-w-screen-2xl">
     <!-- Header -->
     <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
@@ -22,7 +20,8 @@
           </a>
           <!-- desktop nav  -->
           <nav
-            class="aria-label='Main nav' hidden md:flex md:items-center md:space-x-8 [&*:hover]:font-bold [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors [&>a]:text-black lg:[&>a]:text-xl"
+            aria-label="Main nav"
+            class="shidden md:flex md:items-center md:space-x-8 [&*:hover]:font-bold [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors [&>a]:text-black lg:[&>a]:text-xl"
           >
             <a href="/">Home</a>
             <a href="/profile/">My Profile</a>
@@ -47,7 +46,7 @@
             </svg>
           </button>
           <!-- Mobile nav -->
-          <div id="mobile-menu" class="aria-label='Mobile nav' hidden md:hidden">
+          <div aria-label="Mobile nav" id="mobile-menu" class="hidden md:hidden">
             <div class="fixed inset-0 z-50 bg-black bg-opacity-75" aria-hidden="true"></div>
             <div
               class="fixed inset-y-0 right-0 z-50 w-full origin-top animate-open-menu bg-white dark:bg-gray-900"
@@ -155,7 +154,7 @@
         <!-- test -->
       </section>
     </main>
-    <!--  -->
+    <!-- footer -->
     <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
       <div class="mb-6 flex justify-around">
         <a href="#main">Go to top</a>
