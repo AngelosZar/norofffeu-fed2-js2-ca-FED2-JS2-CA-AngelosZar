@@ -8,7 +8,7 @@
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body class="mx-auto grid h-screen min-h-screen max-w-screen-2xl">
+  <body class="mx-auto grid max-w-screen-2xl text-black dark:text-white">
     <!-- Header -->
     <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
@@ -89,17 +89,31 @@
     </header>
     <!-- Main -->
     <main class="grid place-items-center px-2 py-4" id="main">
-      <h2 class="dark:text-white">Create a new post</h2>
-      <section class="place-self-start rounded-md bg-slate-200 px-7 py-4">
-        <label for="">Whats on your mind ?</label>
-        <input type="text" />
+      <!-- <h2 class="dark:text-white">Create a new post</h2> -->
+      <!-- <section class="place-self-start rounded-md bg-slate-200 px-7 py-4"> -->
+      <section
+        class="m-12 w-[90%] place-items-center rounded-md bg-slate-200 px-7 py-6 lg:w-[60%] dark:bg-gray-700 dark:text-white"
+      >
+        <div class="flex w-full flex-col sm:flex-row sm:justify-around">
+          <label
+            for="createPostInput"
+            class="mb-4 flex items-center justify-center font-medium sm:mb-0 md:mb-0"
+            >Whats on your mind ?</label
+          >
+          <input
+            type="text"
+            id="createPostInput"
+            class="rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:w-72 md:w-96 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            placeholder="Create a new post"
+          />
+        </div>
       </section>
+      <!-- Main content /// feed  -->
       <section id="homepage-overlay" class="grid">
-        <h1 class="place-self-center pb-8 text-4xl dark:text-white">Check out your Feed</h1>
+        <h1 class="place-self-center p-12 text-4xl dark:text-white">Check out your Feed</h1>
 
         <div class="mx-auto" id="post-feed">
-          <!-- Individual Post Card -->
-          <!-- <div
+          <div
             class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white"
           >
             <h3 class="title-for-post px-4 py-2 text-xl font-bold">Post Title</h3>
@@ -148,7 +162,6 @@
               <a href="#" id="share-btn" class="hover:bg-slate-300">Share ↪</a>
             </div>
           </div>
-         </div> -->
         </div>
         <!-- test -->
       </section>
