@@ -27,6 +27,7 @@ export const handleMoveToSingleView = function (event) {
   event.preventDefault();
   if (event.target.matches('.card-for-posts') || event.target.matches('.media-for-post')) {
     const postID = event.target.dataset.postId;
+    console.log('postID:', postID);
     localStorage.setItem('postID', postID);
     window.location.href = `/post/`;
   }
