@@ -36,23 +36,7 @@ export const handleMoveToSingleView = function (event) {
 export const generateHtml = async function (parentDiv, responseData) {
   const parentContainer = document.querySelector(`#${parentDiv}`);
   parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[75%]');
-  // class="container mx-auto max-w-[95%] md:max-w-[75%]
   responseData.forEach((post) => {
-    //     const html = `
-    //         <div class="card-for-posts" data-post-id="${post.id}">
-    //           <h3 class="title-for-post">${post.title}</h3>
-    //           <p class="body-for-post">${post?.body}</p>
-    //           <p class="tags-for-post">${post?.tags.join(' / ')}</p>
-    //           <img class="media-for-post" data-post-id="${post.id}" src="${
-    //             post?.media?.url ?? ''
-    //           } " alt="${post?.media?.alt ?? ''}" />
-
-    //            <a href="../post/edit/" class="btn-action1" data-post-id="${post.id}" >Edit Post</a>
-    //           <a href="#" id="deleteCurrentPost" class="btn-action1" data-post-id="${
-    //             post.id
-    //           }">Delete Post</a>
-    //          </div>
-    // `;
     const html = `
     <div class="container mx-auto max-w-[95%] md:max-w-[85%]" id="post-feed">
       <div class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white" data-post-id="${post.id}">

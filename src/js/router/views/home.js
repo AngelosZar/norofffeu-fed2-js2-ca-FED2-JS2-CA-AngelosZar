@@ -12,26 +12,9 @@ const renderMultiplePosts = async function (limit, page, tag) {
       throw new Error('No data found\nPlease try again later');
     }
 
-    const parentContainer = document.querySelector('#post-feed');
-    // parentContainer.classList.add(
-    //   'grid',
-    //   'grid-cols-1',
-    //   'md:grid-cols-2',
-    //   'lg:grid-cols-3',
-    //   'gap-4'
-    // );
+    const parentContainer = document.querySelector('#homepage-post-feed');
+    parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[75%]');
     responseData.forEach((post) => {
-      // const html = `
-      //       <div class="card-for-posts">
-      //         <h3 class="title-for-post">${post.title}</h3>
-      //         <p class="body-for-post">${post?.body}</p>
-      //         <p class="tags-for-post">${post?.tags.join(' / ')}</p>
-      //         <img class="media-for-post" src="${
-      //           post?.media?.url ?? ''
-      //         }" alt="${post?.media?.alt ?? ''}" />
-      //         `;
-
-      // parentContainer.insertAdjacentHTML('beforeend', html);
       const html = `
       <div class="container mx-auto max-w-[95%] md:max-w-[85%]" id="post-feed">
         <div class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white" data-post-id="${post.id}" >
@@ -69,4 +52,4 @@ const renderMultiplePosts = async function (limit, page, tag) {
 };
 
 document.addEventListener('DOMcontentLoaded', checkForCredentials());
-// await renderMultiplePosts(12, 1, 'tag');
+await renderMultiplePosts(12, 1, 'tag');
