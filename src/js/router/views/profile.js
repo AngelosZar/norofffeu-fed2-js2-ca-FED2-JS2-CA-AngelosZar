@@ -6,17 +6,6 @@ import { unFollowUser } from '../../api/auth/follow.js';
 import { readProfile, readProfiles } from '../../api/profile/read.js';
 authGuard();
 
-const fetchUserInfo = function () {
-  const user = localStorage.getItem('userData');
-  const userData = JSON.parse(user);
-  const name = userData.name;
-  const bio = userData?.bio;
-  const avatarImg = userData?.avatarImg;
-  const avatarAlt = userData?.avatarAlt;
-  const bannerImg = userData?.bannerImg;
-  const bannerAlt = userData?.bannerAlt;
-  return { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt };
-};
 const fetchUserInfo2 = async function () {
   const user = await readProfile('angZar');
   const {
