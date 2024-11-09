@@ -3,7 +3,7 @@ import { readPostsByUser } from '../../api/post/read.js';
 import { generateHtml } from '../../router/views/helper.js';
 import { followUser } from '../../api/auth/follow.js';
 import { unFollowUser } from '../../api/auth/follow.js';
-
+import { readProfile, readProfiles } from '../../api/profile/read.js';
 authGuard();
 
 const fetchUserInfo = function () {
@@ -17,6 +17,30 @@ const fetchUserInfo = function () {
   const bannerAlt = userData?.bannerAlt;
   return { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt };
 };
+const fetchUserInfo2 = async function () {
+  const user = await readProfile('angZar');
+  const {
+    name: currentUser,
+    bio,
+    email,
+    avatar: { url: avatarImg, alt: avatarAlt },
+    banner: { url: bannerImg, alt: bannerAlt },
+    _count: { posts: numberOfPosts, followers: numberOfFollowers, following: numberOfFollowing },
+  } = user.data;
+  return {
+    currentUser,
+    avatarImg,
+    avatarAlt,
+    bannerImg,
+    bannerAlt,
+    bio,
+    email,
+    numberOfPosts,
+    numberOfFollowers,
+    numberOfFollowing,
+  };
+};
+fetchUserInfo2();
 
 const eventListeners = async function () {
   followForm.addEventListener('submit', async function (e) {
@@ -45,25 +69,46 @@ const eventListeners = async function () {
 };
 
 //
-const renderProfileHero = function () {
-  const { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt } = fetchUserInfo();
-  // const profileContainer = document.querySelector('.profile-container');
-  // const profileBanner = document.querySelector('.profile-banner');
+const renderProfileHero = async function () {
+  const {
+    currentUser,
+    bio,
+    avatarImg,
+    avatarAlt,
+    bannerImg,
+    bannerAlt,
+    numberOfFollowers,
+    numberOfFollowing,
+  } = await fetchUserInfo2();
+
   const domBannerImg = document.querySelector('.banner-img');
-  // const profileInfo = document.querySelector('.profile-info');
   const domAvatarImg = document.querySelector('.avatar-img');
   const userName = document.querySelector('.user-name');
-  // const userDetails = document.querySelector('.user-details');
+  const userBio = document.querySelector('#user-bio');
+  const userFollowers = document.querySelector('#user-followers');
+  const userFollowing = document.querySelector('#user-following');
 
   if (bannerImg) {
     domBannerImg.src = bannerImg;
     domBannerImg.alt = bannerAlt || 'Profile banner';
   }
+
   if (avatarImg) {
     domAvatarImg.src = avatarImg;
     domAvatarImg.alt = avatarAlt || 'Profile avatar';
   }
-  userName.textContent = name;
+
+  if (bio) {
+    userBio.textContent = bio;
+  }
+  if (numberOfFollowers !== undefined) {
+    userFollowers.textContent = `Followers: ${numberOfFollowers}`;
+  }
+
+  if (numberOfFollowing !== undefined) {
+    userFollowing.textContent = `Following: ${numberOfFollowing}`;
+  }
+  userName.textContent = currentUser;
 };
 
 const profileMain = async function () {

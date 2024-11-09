@@ -43,11 +43,12 @@ export async function readProfiles(limit = 12, page = 1) {
     throw error;
   }
 }
+
 // Delete after testing
 //
 //
-readProfile('angZar');
-readProfiles();
+// readProfile('angZar');
+// readProfiles();
 export const runMain = async () => {
   readProfile(angZar);
 };
