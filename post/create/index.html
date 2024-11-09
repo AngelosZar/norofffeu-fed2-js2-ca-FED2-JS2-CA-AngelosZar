@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-neutral-50 sm:scroll-smooth dark:bg-gray-900">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
+  <body class="mx-auto grid max-w-screen-2xl text-black dark:text-white">
     <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
         <div class="flex h-20 items-center justify-between">
@@ -84,31 +84,63 @@
         </div>
       </section>
     </header>
-    <h1>Create Post</h1>
-
-    <form name="createPost">
-      <div>
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" />
-      </div>
-      <div>
-        <label for="body">Body</label>
-        <input type="text" name="body" id="body" />
-      </div>
-      <div>
-        <label for="tags">Tags</label>
-        <input type="text" name="tags" id="tags" />
-      </div>
-      <div>
-        <label for="media_url">Media url</label>
-        <input type="text" name="media_url" id="media_url" />
-      </div>
-      <div>
-        <label for="media_alt">Media alt</label>
-        <input type="text" name="media_alt" id="media_alt" />
-      </div>
-      <button>Create Post</button>
-    </form>
+    <main class="pb-24">
+      <section class="grid w-full place-items-center pt-4">
+        <h1 class="py-8 text-center text-4xl font-bold">Create a Post</h1>
+        <div class="grid w-full place-items-center">
+          <form name="createPost" class="w-[90%] sm:max-w-[520px]">
+            <div class="mb-5">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="body">Body</label>
+              <input
+                type="text"
+                name="body"
+                id="body"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="tags">Tags</label>
+              <input
+                type="text"
+                name="tags"
+                id="tags"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="media_url">Media url</label>
+              <input
+                type="text"
+                name="media_url"
+                id="media_url"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="media_alt">Media alt</label>
+              <input
+                type="text"
+                name="media_alt"
+                id="media_alt"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              />
+            </div>
+            <button class="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700">
+              Create Post
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
     <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
       <div class="mb-6 flex justify-around">
         <a href="#main">Go to top</a>
