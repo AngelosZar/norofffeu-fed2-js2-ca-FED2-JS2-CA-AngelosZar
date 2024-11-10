@@ -25,7 +25,6 @@ export async function login({ email, password }) {
         bannerImg: responseData.data.banner?.url,
         bannerAlt: responseData.data.banner?.alt,
       };
-
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('name', responseData.data.name);
       localStorage.setItem('userData', JSON.stringify(userData));

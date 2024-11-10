@@ -31,7 +31,8 @@ export const renderMultiplePosts = async function (limit, page, tag) {
 
 const main = async function () {
   const id = localStorage.getItem('postID');
-  await renderMultiplePosts(12, 1, 'tag');
+  // await renderMultiplePosts(12, 1, 'tag');
   await renderSinglePost(id);
 };
 main();
+// renderMultiplePosts(12, 1, 'tag');

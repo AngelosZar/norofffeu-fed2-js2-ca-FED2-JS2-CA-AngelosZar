@@ -29,7 +29,6 @@ export async function updateProfile(username, { avatar, banner }) {
       alert(errors.errors[0].message);
     }
     const res = await response.json();
-    console.log(res);
   } catch (error) {
     console.error('Error:', responseData.errors[0].message);
   }

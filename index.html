@@ -1,37 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="bg-neutral-50 sm:scroll-smooth dark:bg-gray-900">
+  <!-- or dark:bg-[#0A0A0F] -->
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body>
-    <header>
-      <div class="header__left">
-        <a href="/" class="header__link active">Home</a>
-        <a href="/profile/" class="header__link">My Profile</a>
-        <a href="/auth/login/" class="header__link">Login</a>
-        <a href="/auth/register/" class="header__link">Register</a>
-        <button id="logout-btn" class="header__button">Logout</button>
-      </div>
-      <div class="header__right">
-        <img
-          src="/images/noroff-logo.png"
-          alt="Noroff Logo"
-          class="header__logo"
-        />
-      </div>
+  <body class="mx-auto grid max-w-screen-2xl text-black dark:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
+      <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
+        <div class="flex h-20 items-center justify-between">
+          <a href="/" class="flex-shrink-0">
+            <div class="w-28 md:w-36">
+              <img src="/images/noroff-logo.png" alt="Noroff Logo" class="h-auto w-full" />
+            </div>
+          </a>
+          <!-- desktop nav  -->
+          <nav
+            class="aria-label='Main nav' hidden md:flex md:items-center md:space-x-8 [&*:hover]:font-bold [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors [&>a]:text-black lg:[&>a]:text-xl"
+          >
+            <a href="/">Home</a>
+            <a href="/profile/">My Profile</a>
+            <a href="/auth/login/">Login</a>
+            <a href="/auth/register/">Register</a>
+            <a href="" id="desktop-logout-btn" class="logout-btn">Log out</a>
+          </nav>
+          <!-- hamburger -->
+          <button
+            id="hamburger-btn"
+            class="inline-flex items-center justify-center p-2 focus:outline-none focus:ring-2 md:hidden"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="black">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <!-- Mobile nav -->
+          <div id="mobile-menu" class="aria-label='Mobile nav' hidden md:hidden">
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-75" aria-hidden="true"></div>
+            <div
+              class="fixed inset-y-0 right-0 z-50 w-full origin-top animate-open-menu bg-white dark:bg-gray-900"
+            >
+              <div class="flex justify-end p-4">
+                <!-- btn -->
+                <button
+                  id="mobile-close-btn"
+                  class="text-black hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
+                >
+                  <span class="sr-only">Close menu</span>
+                  <svg
+                    class="h-12 w-12 dark:stroke-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="black"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <!-- nav -->
+              <nav
+                class="flex flex-col items-center justify-center space-y-6 px-4 py-6 text-black sm:items-end sm:pr-14 dark:text-white [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors xs:[&>*]:text-3xl sm:[&>*]:text-5xl"
+              >
+                <a href="/">Home</a>
+                <a href="/profile/">My Profile</a>
+                <a href="/auth/login/">Login</a>
+                <a href="/auth/register/">Register</a>
+                <a href="" id="mobile-logout-btn" class="logout-btn">Log out</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
-    <main>
-      <h1>Home</h1>
-      <section id="homepage-overlay">
-        <h1>Latest post</h1>
-        <h2>Get many posts*</h2>
-        <div id="post-feed"></div>
+
+    <!-- Main -->
+    <main class="grid place-items-center px-2 py-4" id="main">
+      <section
+        class="m-12 w-[90%] place-items-center rounded-md bg-slate-200 px-7 py-6 lg:w-[60%] dark:bg-gray-700 dark:text-white"
+      >
+        <div class="flex w-full flex-col sm:flex-row sm:justify-around">
+          <label
+            for="createPostInput"
+            class="mb-4 flex items-center justify-center font-medium sm:mb-0 md:mb-0"
+            >Whats on your mind ?</label
+          >
+          <div class="flex justify-center pl-4">
+            <input
+              type="text"
+              id="createPostInput"
+              class="rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:w-72 md:w-96 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              placeholder="Create a new post"
+            />
+            <svg
+              version="1.1"
+              id="Layer_1_1_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 16 16"
+              style="enable-background: new 0 0 16 16"
+              xml:space="preserve"
+              class="w-6 pl-1"
+            >
+              <polygon points="1,1 1,15 15,8 "></polygon>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <!-- Main content /// feed  -->
+      <section
+        id="homepage-post-feed"
+        class="container mx-auto grid w-full max-w-[95%] place-items-center sm:w-[90%] md:w-[85%] md:max-w-[75%] lg:w-[80%]"
+      >
+        <h1 class="place-self-center p-12 text-3xl sm:text-4xl md:text-5xl dark:text-white">
+          Check out your Feed
+        </h1>
+
+        <!-- Post Feed -->
       </section>
     </main>
+    <!-- footer -->
+    <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
+      <div class="mb-6 flex justify-around">
+        <a href="#main">Go to top</a>
+        <div>
+          <p>&copy; 2021 Noroff</p>
+          <p>All rights reserved</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

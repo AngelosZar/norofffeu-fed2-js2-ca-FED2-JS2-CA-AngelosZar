@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="bg-neutral-50 sm:scroll-smooth dark:bg-gray-900">
   <head>
     <meta charset="UTF-8" />
 
@@ -7,33 +7,105 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <header>
-      <div class="header__left">
-        <a href="/" class="header__link hidden">Home</a>
-        <a href="/profile/" class="header__link">My Profile</a>
-        <a href="/auth/login/" class="header__link">Login</a>
-        <a href="/auth/register/" class="header__link">Register</a>
-        <button id="logout-btn" class="header__button">Logout</button>
-      </div>
-      <div class="header__right">
-        <img
-          src="/images/noroff-logo.png"
-          alt="Noroff Logo"
-          class="header__logo"
-        />
-      </div>
+  <body class="mx-auto grid h-screen max-w-screen-2xl text-black dark:text-white">
+    <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
+      <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
+        <div class="flex h-20 items-center justify-between">
+          <a href="/" class="flex-shrink-0">
+            <div class="w-28 md:w-36">
+              <img src="/images/noroff-logo.png" alt="Noroff Logo" class="h-auto w-full" />
+            </div>
+          </a>
+          <!-- desktop nav  -->
+          <nav
+            class="aria-label='Main nav' hidden md:flex md:items-center md:space-x-8 [&*:hover]:font-bold [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors [&>a]:text-black lg:[&>a]:text-xl"
+          >
+            <a href="/">Home</a>
+            <a href="/profile/">My Profile</a>
+            <a href="/auth/login/">Login</a>
+            <a href="/auth/register/">Register</a>
+            <a href="" id="desktop-logout-btn" class="logout-btn">Log out</a>
+          </nav>
+          <!-- hamburger -->
+          <button
+            id="hamburger-btn"
+            class="inline-flex items-center justify-center p-2 focus:outline-none focus:ring-2 md:hidden"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="black">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <!-- Mobile nav -->
+          <div id="mobile-menu" class="aria-label='Mobile nav' hidden md:hidden">
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-75" aria-hidden="true"></div>
+            <div
+              class="fixed inset-y-0 right-0 z-50 w-full origin-top animate-open-menu bg-white dark:bg-gray-900"
+            >
+              <div class="flex justify-end p-4">
+                <!-- btn -->
+                <button
+                  id="mobile-close-btn"
+                  class="text-black hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
+                >
+                  <span class="sr-only">Close menu</span>
+                  <svg
+                    class="h-12 w-12 dark:stroke-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="black"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <!-- nav -->
+              <nav
+                class="flex flex-col items-center justify-center space-y-6 px-4 py-6 text-black sm:items-end sm:pr-14 dark:text-white [&>*:hover]:text-blue-600 [&>*]:font-semibold [&>*]:transition-colors xs:[&>*]:text-3xl sm:[&>*]:text-5xl"
+              >
+                <a href="/">Home</a>
+                <a href="/profile/">My Profile</a>
+                <a href="/auth/login/">Login</a>
+                <a href="/auth/register/">Register</a>
+                <a href="" id="mobile-logout-btn" class="logout-btn">Log out</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
-    <main>
-      <h1>Post Page</h1>
+    <!-- Main -->
+
+    <main class="mt-[10%]">
+      <!-- <h1>Single Post Page</h1> -->
       <section>
-        <h2>Single Post</h2>
+        <!-- <h2>Single Post</h2> -->
         <div id="single_post"></div>
       </section>
-      <section>
+      <!-- <section>
         <h2>Many many_posts</h2>
         <div id="many_posts"></div>
-      </section>
+      </section> -->
     </main>
+    <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
+      <div class="mb-6 flex justify-around">
+        <a href="#main">Go to top</a>
+        <div>
+          <p>&copy; 2021 Noroff</p>
+          <p>All rights reserved</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
