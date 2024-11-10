@@ -18,7 +18,6 @@ const renderSinglePost = async function (id, container = 'single_post') {
 export const renderMultiplePosts = async function (limit, page, tag) {
   try {
     const responseData = await readPosts(limit, page, tag);
-    console.log(responseData);
 
     if (!responseData) {
       throw new Error('No data found\nPlease try again later');

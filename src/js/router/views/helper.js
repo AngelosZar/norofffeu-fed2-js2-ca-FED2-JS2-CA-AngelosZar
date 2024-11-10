@@ -77,7 +77,6 @@ export const handleMoveToSingleView = function (event) {
   event.preventDefault();
   if (event.target.matches('.card-for-posts') || event.target.matches('.media-for-post')) {
     const postID = event.target.dataset.postId;
-    console.log('postID:', postID);
     localStorage.setItem('postID', postID);
     window.location.href = `/post/`;
   }
@@ -87,7 +86,6 @@ export const generateHtml = async function (parentDiv, responseData) {
   const parentContainer = document.querySelector(`#${parentDiv}`);
   parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[85%]');
   const currentUser = JSON.parse(localStorage.getItem('userData'));
-  console.log(currentUser);
 
   responseData.forEach((post) => {
     const html = `
