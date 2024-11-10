@@ -3,34 +3,66 @@ import { readPostsByUser } from '../../api/post/read.js';
 import { generateHtml } from '../../router/views/helper.js';
 import { followUser } from '../../api/auth/follow.js';
 import { unFollowUser } from '../../api/auth/follow.js';
-import { readProfile, readProfiles } from '../../api/profile/read.js';
+import { readProfile } from '../../api/profile/read.js';
 authGuard();
+//
 
-const fetchUserInfo2 = async function () {
-  const user = await readProfile('angZar');
-  console.log(user);
-  const {
-    name: currentUser,
-    bio,
-    email,
-    avatar: { url: avatarImg, alt: avatarAlt },
-    banner: { url: bannerImg, alt: bannerAlt },
-    _count: { posts: numberOfPosts, followers: numberOfFollowers, following: numberOfFollowing },
-  } = user.data;
-  return {
-    currentUser,
-    avatarImg,
-    avatarAlt,
-    bannerImg,
-    bannerAlt,
-    bio,
-    email,
-    numberOfPosts,
-    numberOfFollowers,
-    numberOfFollowing,
-  };
+// const getUserInfo = async function () {
+//   const user = localStorage.getItem('userData');
+//   console.log(userdata);
+//   const userData = JSON.parse(user);
+//   const name = userData.name;
+//   const bio = userData?.bio;
+//   const avatarImg = userData?.avatarImg;
+//   const avatarAlt = userData?.avatarAlt;
+//   const bannerImg = userData?.bannerImg;
+//   const bannerAlt = userData?.bannerAlt;
+//   //
+//   const userData2 = await readProfile(name);
+//   console.log(userData2);
+//   return { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt };
+// };
+const getUserInfo = async function () {
+  try {
+    const user = localStorage.getItem('userData');
+    console.log(user);
+
+    if (!user) {
+      throw new Error('No user data found in localStorage');
+    }
+
+    const userData = JSON.parse(user);
+    const name = userData.name;
+    const bio = userData?.bio;
+    const avatarImg = userData?.avatarImg;
+    const avatarAlt = userData?.avatarAlt;
+    const bannerImg = userData?.bannerImg;
+    const bannerAlt = userData?.bannerAlt;
+
+    const userData2 = await readProfile(name);
+    console.log(userData2);
+
+    const posts = userData2?.data?._count?.posts || 0;
+    const followers = userData2?.data?._count?.followers || 0;
+    const following = userData2?.data?._count?.following || 0;
+
+    return {
+      name,
+      bio,
+      avatarImg,
+      avatarAlt,
+      bannerImg,
+      bannerAlt,
+      posts,
+      followers,
+      following,
+    };
+  } catch (error) {
+    console.error('Error fetching user info:', error);
+    throw error;
+  }
 };
-fetchUserInfo2();
+//
 
 const eventListeners = async function () {
   followForm.addEventListener('submit', async function (e) {
@@ -59,57 +91,62 @@ const eventListeners = async function () {
 };
 
 //
-export const renderProfileHero = async function () {
-  const {
-    currentUser,
-    bio,
-    avatarImg,
-    avatarAlt,
-    bannerImg,
-    bannerAlt,
-    numberOfFollowers,
-    numberOfFollowing,
-  } = await fetchUserInfo2();
+const renderProfileHero = async function () {
+  try {
+    const userInfo = await getUserInfo();
+    const { name, bio, avatarImg, avatarAlt, bannerImg, bannerAlt, posts, followers, following } =
+      userInfo;
 
-  const domBannerImg = document.querySelector('.banner-img');
-  const domAvatarImg = document.querySelector('.avatar-img');
-  const userName = document.querySelector('.user-name');
-  const userBio = document.querySelector('#user-bio');
-  const userFollowers = document.querySelector('#user-followers');
-  const userFollowing = document.querySelector('#user-following');
+    const profileContainer = document.querySelector('.profile-container');
+    const profileBanner = document.querySelector('.profile-banner');
+    const domBannerImg = document.querySelector('.banner-img');
+    const profileInfo = document.querySelector('.profile-info');
+    const domAvatarImg = document.querySelector('.avatar-img');
+    const userName = document.querySelector('.user-name');
+    const userDetails = document.querySelector('.user-details');
 
-  if (bannerImg) {
-    domBannerImg.src = bannerImg;
-    domBannerImg.alt = bannerAlt || 'Profile banner';
-  }
+    if (bannerImg) {
+      domBannerImg.src = bannerImg;
+      domBannerImg.alt = bannerAlt || 'Profile banner';
+    }
 
-  if (avatarImg) {
-    domAvatarImg.src = avatarImg;
-    domAvatarImg.alt = avatarAlt || 'Profile avatar';
-  }
+    if (avatarImg) {
+      domAvatarImg.src = avatarImg;
+      domAvatarImg.alt = avatarAlt || 'Profile avatar';
+    }
 
-  if (bio) {
-    userBio.textContent = bio;
-  }
-  if (numberOfFollowers !== undefined) {
-    userFollowers.textContent = `Followers: ${numberOfFollowers}`;
-  }
+    userName.textContent = name;
 
-  if (numberOfFollowing !== undefined) {
-    userFollowing.textContent = `Following: ${numberOfFollowing}`;
+    userDetails.innerHTML = `
+      <p>${posts} Posts</p>
+      <p>${followers} Followers</p>
+      <p>${following} Following</p>
+    `;
+
+    if (bio) {
+      userDetails.innerHTML += `<p class="bio">${bio}</p>`;
+    }
+  } catch (error) {
+    console.error('Error rendering profile:', error);
   }
-  userName.textContent = currentUser;
 };
 
 const profileMain = async function () {
-  const username = localStorage.getItem('name');
-  const followForm = document.querySelector('#followForm');
-  const unFollowForm = document.querySelector('#unFollowForm');
-  renderProfileHero();
   try {
+    const username = localStorage.getItem('name');
+    // const responseData = await readPostsByUser(username);
+    if (!username) {
+      throw new Error('No username found in localStorage');
+      // maybe promt to log in page
+    }
+
+    const followForm = document.querySelector('#followForm');
+    const unFollowForm = document.querySelector('#unFollowForm');
+    await renderProfileHero();
+    //
+    //
     const responseData = await readPostsByUser(username);
     if (responseData && responseData.length > 0) {
-      //
       await generateHtml('profile-post-feed', responseData);
       await eventListeners();
     } else {

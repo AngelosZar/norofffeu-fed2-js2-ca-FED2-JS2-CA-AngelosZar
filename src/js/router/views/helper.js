@@ -85,7 +85,7 @@ export const handleMoveToSingleView = function (event) {
 
 export const generateHtml = async function (parentDiv, responseData) {
   const parentContainer = document.querySelector(`#${parentDiv}`);
-  parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[75%]');
+  parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[85%]');
   responseData.forEach((post) => {
     const html = `
     <div class="container mx-auto max-w-[95%] md:max-w-[85%]" id="post-feed">

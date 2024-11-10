@@ -2,8 +2,6 @@ import { readPost, readPostsByUser, readPosts } from '../../api/post/read.js';
 import { API_SOCIAL_PROFILES } from '../../api/constants.js';
 import { API_SOCIAL_POSTS } from '../../api/constants.js';
 
-//
-//
 export async function readProfile(username) {
   try {
     const response = await fetch(`${API_SOCIAL_PROFILES}/${username}`, {
@@ -16,7 +14,6 @@ export async function readProfile(username) {
     });
 
     const userData = await response.json();
-    // console.log(userData);
     return userData;
   } catch (error) {
     console.error('Error:', responseData.errors[0].message);
@@ -52,8 +49,5 @@ export async function readProfiles(limit = 12, page = 1) {
 // readProfile('angZar');
 // readProfiles();
 export const runMain = async () => {
-  await readPosts();
-  // readProfile('angZar');
-  // readProfiles(12, 1);
-  // await readPostsSync();
+  // await readPosts();
 };

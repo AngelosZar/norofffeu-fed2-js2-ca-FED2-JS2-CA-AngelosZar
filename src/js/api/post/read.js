@@ -35,25 +35,18 @@ export async function readPost(id, author = '?_author=true') {
   return await apiGetRequest(`${API_SOCIAL_POSTS}/${id}${author}`);
 }
 
-// export async function readPosts(limit = 12, page = 1, tag, author = '?_author=true') {
-//   const url = `${API_SOCIAL_POSTS}?limit=${limit}&page=${page}${tag ? `&tag=${tag}` : ''}${author ? `&${author}` : ''}`;
-//   return await apiGetRequest(url);
-// }
-
-//
 export async function readPosts(limit = 12, page = 1, author = '?_author=true') {
   const url = `${API_SOCIAL_POSTS}?limit=${limit}&page=${page}&_author=true`;
   console.log(url);
   return await apiGetRequest(url);
 }
 
-export async function readPostsByUser(
-  username,
-  limit = 12,
-  page = 1,
-  tag,
-  author = '?_author=true'
-) {
-  const url = `${API_SOCIAL_PROFILES}/${username}/posts?limit=${limit}&page=${page}${tag ? `&tag=${tag}` : ''}${author}`;
+export async function readPostsByUser(username, limit = 12, page = 1, tag) {
+  let url = `${API_SOCIAL_PROFILES}/${username}/posts?limit=${limit}&page=${page}`;
+
+  if (tag) {
+    url += `&tag=${tag}`;
+  }
+
   return await apiGetRequest(url);
 }

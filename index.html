@@ -26,7 +26,7 @@
             <a href="/profile/">My Profile</a>
             <a href="/auth/login/">Login</a>
             <a href="/auth/register/">Register</a>
-            <a href="#" id="desktop-logout-btn">Log out</a>
+            <a href="" id="desktop-logout-btn" class="logout-btn">Log out</a>
           </nav>
           <!-- hamburger -->
           <button
@@ -80,17 +80,16 @@
                 <a href="/profile/">My Profile</a>
                 <a href="/auth/login/">Login</a>
                 <a href="/auth/register/">Register</a>
-                <a href="#" id="mobile-logout-btn">Log out</a>
+                <a href="" id="mobile-logout-btn" class="logout-btn">Log out</a>
               </nav>
             </div>
           </div>
         </div>
       </section>
     </header>
+
     <!-- Main -->
     <main class="grid place-items-center px-2 py-4" id="main">
-      <!-- <h2 class="dark:text-white">Create a new post</h2> -->
-      <!-- <section class="place-self-start rounded-md bg-slate-200 px-7 py-4"> -->
       <section
         class="m-12 w-[90%] place-items-center rounded-md bg-slate-200 px-7 py-6 lg:w-[60%] dark:bg-gray-700 dark:text-white"
       >
@@ -125,8 +124,15 @@
         </div>
       </section>
       <!-- Main content /// feed  -->
-      <section id="homepage-post-feed" class="container mx-auto grid max-w-[95%] md:max-w-[75%]">
-        <h1 class="place-self-center p-12 text-4xl dark:text-white">Check out your Feed</h1>
+      <section
+        id="homepage-post-feed"
+        class="container mx-auto grid w-full max-w-[95%] place-items-center sm:w-[90%] md:w-[85%] md:max-w-[75%] lg:w-[80%]"
+      >
+        <h1 class="place-self-center p-12 text-3xl sm:text-4xl md:text-5xl dark:text-white">
+          Check out your Feed
+        </h1>
+
+        <!-- Post Feed -->
       </section>
     </main>
     <!-- footer -->

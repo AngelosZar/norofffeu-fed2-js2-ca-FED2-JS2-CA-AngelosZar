@@ -4,10 +4,7 @@ import { readPost } from '../../api/post/read';
 import { checkForCredentials } from '../../router/views/auth';
 import { handleMoveToSingleView } from '../../router/views/helper.js';
 import { formatPostDate } from '../../router/views/helper.js';
-// import { fetchPostAuthor } from '../../router/views/helper.js';
 import { extractAuthorInfo } from '../../router/views/helper.js';
-// import { renderProfileHero } from '../../router/views/profile.js';
-// import { fetchUserInfo2 } from '../../router/views/profile.js';
 
 authGuard();
 //
@@ -18,16 +15,10 @@ const renderMultiplePosts = async function () {
     if (!responseData) {
       throw new Error('No data found\nPlease try again later');
     }
-    //
-    console.log('home.js');
-    console.log(responseData[0].id);
-    console.log(responseData[0].author.name);
-    console.log(responseData[0].author);
     const parentContainer = document.querySelector('#homepage-post-feed');
-    parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[75%]');
+    parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[85%]');
 
     responseData.forEach(async (post) => {
-      console.log(post);
       const { name, email, bio, avatar, banner, avatarUrl, bannerUrl, avatarAlt } =
         extractAuthorInfo(post);
 
