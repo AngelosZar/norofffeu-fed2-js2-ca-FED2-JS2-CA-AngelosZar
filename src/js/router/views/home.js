@@ -3,8 +3,9 @@ import { readPosts } from '../../api/post/read';
 import { readPost } from '../../api/post/read';
 import { checkForCredentials } from '../../router/views/auth';
 import { handleMoveToSingleView } from '../../router/views/helper.js';
-import { formatPostDate } from '../../router/views/helper.js';
-import { extractAuthorInfo } from '../../router/views/helper.js';
+// import { formatPostDate } from '../../router/views/helper.js';
+// import { extractAuthorInfo } from '../../router/views/helper.js';
+import { extractAuthorInfo, formatPostDate } from '../../router/views/helper';
 
 authGuard();
 //
@@ -33,13 +34,13 @@ const renderMultiplePosts = async function () {
                 />
                 <div class="flex flex-col">
                   <p id="userAvatarOnPost" class="">${name}</p>
-                  <p id="timeOfPost" class="flex max-w-[80%] dark:text-gray-400">${formatPostDate(post.created)}</p>
+                  <p id="timeOfPost" class="flex text-xs dark:text-gray-400">${formatPostDate(post.created)}</p>
                 </div>
               </div>
          <div class="flex w-full flex-shrink flex-col md:pl-8 md:pt-2">
-         <h3 class="title-for-post px-4 py-2 text-xl font-bold truncate max-w- hover:text-clip hover:whitespace-normal text-right">${post.title}</h3>
+         <h3 class="title-for-post px-4 py-2 text-xl font-bold truncate hover:text-clip hover:whitespace-normal text-right">${post.title}</h3>
           <p class="body-for-post px-4 pb-2 dark:text-gray-400 text-right">${post?.body}</p>
-</div>
+           </div>
             </div>
             <div class="flex max-h-[36rem] max-w-[62rem] items-center justify-center overflow-hidden">
               <img
