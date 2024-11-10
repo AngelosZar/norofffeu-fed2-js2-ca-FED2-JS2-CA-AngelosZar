@@ -15,4 +15,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   await router(window.location.pathname);
   initNavigationMenu();
   onLogout();
+  runMain();
 });

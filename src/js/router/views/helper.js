@@ -1,5 +1,5 @@
 import { deletePost } from '../../api/post/delete';
-
+import { API_SOCIAL_PROFILES } from '../../api/constants';
 export function formatPostDate(createdDate) {
   const now = new Date();
   const postDate = new Date(createdDate);
@@ -19,6 +19,23 @@ export function formatPostDate(createdDate) {
   }
 }
 
+export const fetchPostAuthor = async function (postId) {
+  try {
+    const response = await fetch(`${API_SOCIAL_PROFILES}/posts/${postId}?_author=true`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'X-Noroff-API-Key': `${localStorage.getItem('apiKey')}`,
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+    return data.author;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 export const handleEditPost = async function (event) {
   if (event.target.matches('.btn-action1') && event.target.textContent.includes('Edit Post')) {
     const editBtn = event.target;

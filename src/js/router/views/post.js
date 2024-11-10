@@ -36,3 +36,4 @@ const main = async function () {
   await renderSinglePost(id);
 };
 main();
+// renderMultiplePosts(12, 1, 'tag');

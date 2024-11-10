@@ -1,10 +1,12 @@
 import { authGuard } from '../../utilities/authGuard';
 import { readPosts } from '../../api/post/read';
+import { readPost } from '../../api/post/read';
 import { checkForCredentials } from '../../router/views/auth';
 import { handleMoveToSingleView } from '../../router/views/helper.js';
 import { formatPostDate } from '../../router/views/helper.js';
-import { renderProfileHero } from '../../router/views/profile.js';
-import { fetchUserInfo2 } from '../../router/views/profile.js';
+import { fetchPostAuthor } from '../../router/views/helper.js';
+// import { renderProfileHero } from '../../router/views/profile.js';
+// import { fetchUserInfo2 } from '../../router/views/profile.js';
 
 authGuard();
 const renderMultiplePosts = async function (limit, page, tag) {
@@ -15,18 +17,20 @@ const renderMultiplePosts = async function (limit, page, tag) {
       throw new Error('No data found\nPlease try again later');
     }
 
+    // console.log(responseData[0].id);
     const parentContainer = document.querySelector('#homepage-post-feed');
     parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[75%]');
-    responseData.forEach((post) => {
+    // const author = await fetchPostAuthor(post.id);
+    responseData.forEach(async (post) => {
       const html = `
       <div class="container mx-auto max-w-[95%] md:max-w-[85%]" id="post-feed">
         <div class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white" data-post-id="${post.id}">
           <div class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_3fr]">
             <div class="flex w-full items-center gap-4 pl-4 md:pl-6">
               <img
-                src="${avatarImg}"
+                src="${author?.avatar?.url || 'ProfileImg'}"
                 class="flex h-16 w-16 flex-shrink-0 rounded-full object-cover"
-                alt="${avatarAlt || 'User Avatar'}"
+            alt="${author?.avatar?.alt || 'User Avatar'}"
               />
               <div class="flex flex-col">
                 <p id="userAvatarOnPost" class="">${currentUser}</p>
@@ -70,4 +74,5 @@ const renderMultiplePosts = async function (limit, page, tag) {
 };
 
 document.addEventListener('DOMcontentLoaded', checkForCredentials());
-await renderMultiplePosts(12, 1, 'tag');
+// await renderMultiplePosts(12, 1, 'tag');
+await readPost(4396);

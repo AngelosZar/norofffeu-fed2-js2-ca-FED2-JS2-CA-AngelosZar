@@ -11,9 +11,10 @@ const apiGetRequest = async function (url, method = 'GET') {
         'X-Noroff-API-Key': `${localStorage.getItem('apiKey')}`,
       },
     });
-
+    console.log('Raw Response:', response.body);
+    console.log('Response Status:', response.status);
     const responseData = await response.json();
-    console.log(responseData);
+    console.log('Response Data:', responseData);
 
     if (!response.ok) {
       alert(responseData.errors[0].message);
@@ -26,18 +27,23 @@ const apiGetRequest = async function (url, method = 'GET') {
   }
 };
 
-export async function readPost(id) {
-  return await apiGetRequest(`${API_SOCIAL_POSTS}/${id}`);
+export async function readPost(id, author = '?_author=true') {
+  // const authorQuery = author ? '?_author=true' : '';
+  return await apiGetRequest(`${API_SOCIAL_POSTS}/${id}${author}`);
 }
 
-export async function readPosts(limit = 12, page = 1, tag) {
-  const url = `${API_SOCIAL_POSTS}?limit=${limit}&page=${page}${tag ? `&tag=${tag}` : ''}`;
+export async function readPosts(limit = 12, page = 1, tag, author = '?_author=true') {
+  const url = `${API_SOCIAL_POSTS}?limit=${limit}&page=${page}${tag ? `&tag=${tag}` : ''}${author ? `&${author}` : ''}`;
   return await apiGetRequest(url);
 }
 
-export async function readPostsByUser(username, limit = 12, page = 1, tag) {
-  const url = `${API_SOCIAL_PROFILES}/${username}/posts?limit=${limit}&page=${page}${
-    tag ? `&tag=${tag}` : ''
-  }`;
+export async function readPostsByUser(
+  username,
+  limit = 12,
+  page = 1,
+  tag,
+  author = '?_author=true'
+) {
+  const url = `${API_SOCIAL_PROFILES}/${username}/posts?limit=${limit}&page=${page}${tag ? `&tag=${tag}` : ''}${author}`;
   return await apiGetRequest(url);
 }

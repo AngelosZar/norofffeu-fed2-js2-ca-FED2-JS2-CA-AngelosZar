@@ -13,8 +13,9 @@ export async function readProfile(username) {
         'X-Noroff-API-Key': `${localStorage.getItem('apiKey')}`,
       },
     });
+
     const userData = await response.json();
-    console.log(userData);
+    // console.log(userData);
     return userData;
   } catch (error) {
     console.error('Error:', responseData.errors[0].message);
@@ -50,6 +51,7 @@ export async function readProfiles(limit = 12, page = 1) {
 // readProfile('angZar');
 // readProfiles();
 export const runMain = async () => {
-  readProfile(angZar);
+  // readProfile('angZar');
+  // readProfiles(12, 1);
 };
 //
