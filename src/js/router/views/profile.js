@@ -8,6 +8,7 @@ authGuard();
 
 const fetchUserInfo2 = async function () {
   const user = await readProfile('angZar');
+  console.log(user);
   const {
     name: currentUser,
     bio,

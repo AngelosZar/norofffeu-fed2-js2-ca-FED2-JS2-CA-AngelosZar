@@ -4,36 +4,45 @@ import { readPost } from '../../api/post/read';
 import { checkForCredentials } from '../../router/views/auth';
 import { handleMoveToSingleView } from '../../router/views/helper.js';
 import { formatPostDate } from '../../router/views/helper.js';
-import { fetchPostAuthor } from '../../router/views/helper.js';
+// import { fetchPostAuthor } from '../../router/views/helper.js';
+import { extractAuthorInfo } from '../../router/views/helper.js';
 // import { renderProfileHero } from '../../router/views/profile.js';
 // import { fetchUserInfo2 } from '../../router/views/profile.js';
 
 authGuard();
-const renderMultiplePosts = async function (limit, page, tag) {
+//
+const renderMultiplePosts = async function () {
   try {
-    const responseData = await readPosts(limit, page, tag);
+    const responseData = await readPosts();
 
     if (!responseData) {
       throw new Error('No data found\nPlease try again later');
     }
-
-    // console.log(responseData[0].id);
+    //
+    console.log('home.js');
+    console.log(responseData[0].id);
+    console.log(responseData[0].author.name);
+    console.log(responseData[0].author);
     const parentContainer = document.querySelector('#homepage-post-feed');
     parentContainer.classList.add('container', 'mx-auto', 'max-w-[95%]', 'md:max-w-[75%]');
-    // const author = await fetchPostAuthor(post.id);
+
     responseData.forEach(async (post) => {
+      console.log(post);
+      const { name, email, bio, avatar, banner, avatarUrl, bannerUrl, avatarAlt } =
+        extractAuthorInfo(post);
+
       const html = `
       <div class="container mx-auto max-w-[95%] md:max-w-[85%]" id="post-feed">
         <div class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white" data-post-id="${post.id}">
           <div class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_3fr]">
             <div class="flex w-full items-center gap-4 pl-4 md:pl-6">
               <img
-                src="${author?.avatar?.url || 'ProfileImg'}"
+                src="${avatarUrl}"
                 class="flex h-16 w-16 flex-shrink-0 rounded-full object-cover"
-            alt="${author?.avatar?.alt || 'User Avatar'}"
+            alt="${avatarAlt}"
               />
               <div class="flex flex-col">
-                <p id="userAvatarOnPost" class="">${currentUser}</p>
+                <p id="userAvatarOnPost" class="">${name}</p>
                 <p id="timeOfPost" class="flex max-w-[80%] dark:text-gray-400">${formatPostDate(post.created)}</p>
               </div>
             </div>
@@ -42,7 +51,6 @@ const renderMultiplePosts = async function (limit, page, tag) {
               <p class="body-for-post px-4 pb-2 dark:text-gray-400">${post?.body}</p>
             </div>
           </div>
-      
           <div class="flex max-h-[36rem] max-w-[62rem] items-center justify-center overflow-hidden">
             <img
               class="media-for-post h-auto w-full object-contain object-center"
@@ -51,9 +59,7 @@ const renderMultiplePosts = async function (limit, page, tag) {
               data-post-id="${post.id}"
             />
           </div>
-          
           <p class="tags-for-post py-4 pl-4">${post?.tags.join(' / ')}</p>
-          
           <div class="flex justify-around pb-4 [&>a]:rounded-md [&>a]:px-4 [&>a]:py-2 [&>a]:transition-colors flex-wrap">
             <a href="#" id="like-btn" class="hover:bg-slate-300">Like 👍</a>
             <a href="#" id="comment-btn" class="hover:bg-slate-300">Comment 💬</a>
@@ -74,5 +80,8 @@ const renderMultiplePosts = async function (limit, page, tag) {
 };
 
 document.addEventListener('DOMcontentLoaded', checkForCredentials());
-// await renderMultiplePosts(12, 1, 'tag');
-await readPost(4396);
+await renderMultiplePosts();
+// await readPost(4396);
+// await readPosts(12, 1, 'tag');
+
+//

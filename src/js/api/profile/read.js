@@ -1,6 +1,7 @@
-import { readPostsByUser } from '../../api/post/read.js';
+import { readPost, readPostsByUser, readPosts } from '../../api/post/read.js';
 import { API_SOCIAL_PROFILES } from '../../api/constants.js';
-console.log(API_SOCIAL_PROFILES);
+import { API_SOCIAL_POSTS } from '../../api/constants.js';
+
 //
 //
 export async function readProfile(username) {
@@ -51,7 +52,8 @@ export async function readProfiles(limit = 12, page = 1) {
 // readProfile('angZar');
 // readProfiles();
 export const runMain = async () => {
+  await readPosts();
   // readProfile('angZar');
   // readProfiles(12, 1);
+  // await readPostsSync();
 };
-//
