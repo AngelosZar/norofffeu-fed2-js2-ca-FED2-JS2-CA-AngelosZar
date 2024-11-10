@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="bg-neutral-50 sm:scroll-smooth dark:bg-gray-900">
+<html lang="en" class="bg-neutral-50 dark:bg-gray-900">
   <head>
     <meta charset="UTF-8" />
 
@@ -8,9 +8,7 @@
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body
-    class="mx-auto grid min-h-screen max-w-screen-2xl place-items-center text-black dark:text-white"
-  >
+  <body class="mx-auto grid max-w-screen-2xl text-black dark:text-white">
     <header class="sticky top-0 z-50 w-full rounded-b-lg bg-white px-2 shadow-sm">
       <section class="mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8 xl:px-8">
         <div class="flex h-20 items-center justify-between">
@@ -88,61 +86,41 @@
         </div>
       </section>
     </header>
-    <!-- Main -->
-    <main class="grid min-h-screen w-full grid-cols-1 place-items-center gap-4">
-      <section class="grid min-h-screen grid-cols-1 place-items-center md:grid-cols-2">
-        <div class="flex h-full w-full items-center justify-center px-4 py-8">
-          <div class="w-full max-w-md">
-            <h1 class="pb-8 text-3xl font-bold">Login</h1>
-            <form name="login">
-              <div class="mb-5">
-                <label for="email">Email</label>
-                <input
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                  id="email"
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Email@stud.noroff.no"
-                />
-              </div>
 
-              <div class="mb-5">
-                <label for="password">Password</label>
-                <input
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                  type="password"
-                  name="password"
-                  id="password"
-                  required
-                  placeholder="Password"
-                />
-              </div>
-              <button class="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700">
-                Login
-              </button>
-              <div class="mt-16">
-                <p>⬇️ Click here to create an acount</p>
-                <a
-                  href="/auth/register/"
-                  class="text my-2 text-2xl text-blue-500 underline hover:text-blue-700"
-                  >Register</a
-                >
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="hidden h-full w-full md:block">
+    <main class="grid">
+      <section
+        id="profile-banner-container"
+        class="profile-banner-container flex flex-col border-x-2 border-b-2 border-gray-400"
+      >
+        <div
+          class="profile-banner lg:mb-18 relative mb-8 max-w-screen-2xl xs:mb-12 md:mb-14 lg:mb-20"
+        >
           <img
-            src="https://images.unsplash.com/photo-1543332164-6e82f355badc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="hello"
-            class="h-full w-full object-cover"
+            alt="Profile Banner"
+            class="banner-img h-[15vh] w-full object-cover md:h-[20vh] lg:h-[30vh]"
+          />
+          <img
+            alt="User Avatar"
+            class="avatar-img top profile-info xs:left-6md:-bottom-14 absolute -bottom-5 left-4 h-20 w-20 rounded-full xs:-bottom-12 xs:h-28 xs:w-28 md:left-8 md:h-36 md:w-36 lg:-bottom-16 lg:left-10 lg:h-44 lg:w-44 xl:-bottom-20 xl:h-52 xl:w-52"
           />
         </div>
+        <div class="user-details mx-6 xs:my-4 xs:text-xl md:mx-8 md:text-2xl xl:mx-12">
+          <h1 class="user-name"></h1>
+          <p id="user-bio">
+            <strong>Bio:</strong>
+          </p>
+          <p><strong>Location:</strong> Oslo , Norway</p>
+          <p id="user-followers"><strong>Followers:</strong></p>
+          <p id="user-following"><strong>Following:</strong></p>
+        </div>
+      </section>
+
+      <section class="mt-16 flex flex-col">
+        <h1 class="my-8 text-center text-5xl">Your latest posts</h1>
+        <div id="profile-post-feed"></div>
       </section>
     </main>
-    <!-- Footer -->
-    <footer class="w-full border-t-2 border-t-gray-500">
+    <footer class="border-t-2 border-t-gray-500 pt-6 dark:text-white">
       <div class="mb-6 flex justify-around">
         <a href="#main">Go to top</a>
         <div>

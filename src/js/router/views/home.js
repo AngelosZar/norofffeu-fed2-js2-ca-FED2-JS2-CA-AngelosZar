@@ -31,6 +31,8 @@ const renderMultiplePosts = async function () {
                   src="${avatarUrl}"
                   class="flex h-16 w-16 flex-shrink-0 rounded-full object-cover"
                   alt="${avatarAlt}"
+                  id="userAvatarOnPost"
+                  data-author-name="${name}"
                 />
                 <div class="flex flex-col">
                   <p id="userAvatarOnPost" class="">${name}</p>
@@ -65,6 +67,12 @@ const renderMultiplePosts = async function () {
       return postId;
     });
     parentContainer.addEventListener('click', handleMoveToSingleView);
+    document.querySelector('#userAvatarOnPost').addEventListener('click', (e) => {
+      e.preventDefault();
+      const authorName = e.target.dataset.authorName;
+      // console.log(authorName);
+      // window.location.href = /user/;
+    });
   } catch (error) {
     alert(error);
     throw error;
