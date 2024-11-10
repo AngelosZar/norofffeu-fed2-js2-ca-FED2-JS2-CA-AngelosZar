@@ -58,7 +58,7 @@ const eventListeners = async function () {
 };
 
 //
-const renderProfileHero = async function () {
+export const renderProfileHero = async function () {
   const {
     currentUser,
     bio,

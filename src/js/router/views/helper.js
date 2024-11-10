@@ -1,4 +1,24 @@
 import { deletePost } from '../../api/post/delete';
+
+export function formatPostDate(createdDate) {
+  const now = new Date();
+  const postDate = new Date(createdDate);
+  const diffInHours = (now - postDate) / (1000 * 60 * 60);
+
+  if (diffInHours < 24) {
+    if (diffInHours < 1) {
+      const minutes = Math.floor(diffInHours * 60);
+      return `${minutes} minutes ago`;
+    }
+    return `${Math.floor(diffInHours)} hours ago`;
+  } else {
+    return postDate.toLocaleString('en-US', {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+    });
+  }
+}
+
 export const handleEditPost = async function (event) {
   if (event.target.matches('.btn-action1') && event.target.textContent.includes('Edit Post')) {
     const editBtn = event.target;

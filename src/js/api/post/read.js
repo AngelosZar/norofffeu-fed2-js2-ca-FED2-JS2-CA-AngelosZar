@@ -13,6 +13,7 @@ const apiGetRequest = async function (url, method = 'GET') {
     });
 
     const responseData = await response.json();
+    console.log(responseData);
 
     if (!response.ok) {
       alert(responseData.errors[0].message);

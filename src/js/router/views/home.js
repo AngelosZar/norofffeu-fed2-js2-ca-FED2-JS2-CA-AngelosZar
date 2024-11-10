@@ -2,8 +2,11 @@ import { authGuard } from '../../utilities/authGuard';
 import { readPosts } from '../../api/post/read';
 import { checkForCredentials } from '../../router/views/auth';
 import { handleMoveToSingleView } from '../../router/views/helper.js';
-authGuard();
+import { formatPostDate } from '../../router/views/helper.js';
+import { renderProfileHero } from '../../router/views/profile.js';
+import { fetchUserInfo2 } from '../../router/views/profile.js';
 
+authGuard();
 const renderMultiplePosts = async function (limit, page, tag) {
   try {
     const responseData = await readPosts(limit, page, tag);
@@ -17,10 +20,25 @@ const renderMultiplePosts = async function (limit, page, tag) {
     responseData.forEach((post) => {
       const html = `
       <div class="container mx-auto max-w-[95%] md:max-w-[85%]" id="post-feed">
-        <div class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white" data-post-id="${post.id}" >
-          <h3 class="title-for-post px-4 py-2 text-xl font-bold">${post.title}</h3>
-          <p class="body-for-post px-4 pb-4 dark:text-gray-400">${post?.body}</p>
-          
+        <div class="card-for-posts mb-8 rounded-md border-2 border-slate-300 bg-slate-50 text-gray-600 dark:bg-gray-700 dark:text-white" data-post-id="${post.id}">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_3fr]">
+            <div class="flex w-full items-center gap-4 pl-4 md:pl-6">
+              <img
+                src="${avatarImg}"
+                class="flex h-16 w-16 flex-shrink-0 rounded-full object-cover"
+                alt="${avatarAlt || 'User Avatar'}"
+              />
+              <div class="flex flex-col">
+                <p id="userAvatarOnPost" class="">${currentUser}</p>
+                <p id="timeOfPost" class="flex max-w-[80%] dark:text-gray-400">${formatPostDate(post.created)}</p>
+              </div>
+            </div>
+            <div class="flex w-full flex-shrink flex-col md:pl-2 md:pt-2">
+              <h3 class="title-for-post px-4 py-2 text-xl font-bold">${post.title}</h3>
+              <p class="body-for-post px-4 pb-2 dark:text-gray-400">${post?.body}</p>
+            </div>
+          </div>
+      
           <div class="flex max-h-[36rem] max-w-[62rem] items-center justify-center overflow-hidden">
             <img
               class="media-for-post h-auto w-full object-contain object-center"
